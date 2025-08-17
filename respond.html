@@ -182,16 +182,156 @@
             }
         }
 
+        .banner {
+            background-color: #bbf7d0;
+            color: #14532d;
+            border-bottom: 1px solid #86efac;
+            text-align: center;
+            padding: 1rem 0
+        }
+
+        .banner span {
+            font-weight: 700
+        }
+
         .welcome-section {
-            padding-top: 4rem;
+            padding-top: 2rem;
             padding-bottom: 4rem;
-            text-align: center
         }
 
         .welcome-section h2 {
             font-size: 1.5rem;
-            color: #4b5563;
-            font-weight: 400
+            color: #333;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+
+        .intro-text {
+            font-size: 1rem;
+            color: #555;
+            margin-bottom: 2rem;
+            line-height: 1.6;
+        }
+
+        .search-form {
+            background: white;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 2rem;
+        }
+
+        .identifier-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .radio-group {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .radio-group input[type="radio"] {
+            width: 18px;
+            height: 18px;
+        }
+
+        .radio-group label {
+            font-size: 1rem;
+            color: #333;
+            cursor: pointer;
+        }
+
+        .input-section {
+            margin-bottom: 1.5rem;
+        }
+
+        .warning-text {
+            color: #dc2626;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .input-field {
+            width: 100%;
+            max-width: 400px;
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 1rem;
+        }
+
+        .captcha-section {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .captcha-display {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 0.75rem 1rem;
+            border-radius: 4px;
+            font-family: monospace;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 2px;
+            color: #374151;
+        }
+
+        .captcha-refresh {
+            background: #f3f4f6;
+            border: 1px solid #d1d5db;
+            padding: 0.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        .captcha-input {
+            padding: 0.75rem;
+            border: 1px solid #d1d5db;
+            border-radius: 4px;
+            font-size: 1rem;
+            width: 150px;
+        }
+
+        .search-button {
+            background: #059669;
+            color: white;
+            padding: 0.75rem 2rem;
+            border: none;
+            border-radius: 4px;
+            font-size: 1rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .search-button:hover {
+            background: #047857;
+        }
+
+        .disclaimer {
+            background: #f8f9fa;
+            padding: 1.5rem;
+            border-radius: 8px;
+            border-left: 4px solid #991b1b;
+        }
+
+        .disclaimer h3 {
+            color: #991b1b;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+
+        .disclaimer p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 0.95rem;
         }
 
         .footer {
@@ -226,9 +366,9 @@
                     </div>
                     <div class="utility-links-container">
                         <nav class="utility-nav">
-                            <a href="report-incident.html">REPORT AN INCIDENT</a>
+                            <a href="#">REPORT AN INCIDENT</a>
                             <a href="#">TRACK COMPLAINT</a>
-                            <a href="contact.html">CONTACT US</a>
+                            <a href="#">CONTACT US</a>
                             <a href="#">LOGIN / SIGNUP</a>
                         </nav>
                     </div>
@@ -244,7 +384,7 @@
                     </div>
                 </nav>
                 <div class="hero-section">
-                    <h1>The National Cyber Security Centre</h1>
+                    <h1>Report & Check Suspect</h1>
                     <p>Protecting India From Cyber Criminals.</p>
                 </div>
             </div>
@@ -252,7 +392,49 @@
         <main>
             <div class="welcome-section">
                 <div class="container">
-                    <h2>Report & Check Suspect Content Goes Here</h2>
+                    <p class="intro-text">This Repository of suspect identifier has been created on the basis of multiple complaints filed by citizens for cybercrimes on this portal.</p>
+                    
+                    <div class="search-form">
+                        <div class="identifier-options">
+                            <div class="radio-group">
+                                <input type="radio" id="mobile" name="identifier" value="mobile" checked>
+                                <label for="mobile">Mobile</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="email" name="identifier" value="email">
+                                <label for="email">E-mail</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="bank" name="identifier" value="bank">
+                                <label for="bank">Bank Account Number</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="social" name="identifier" value="social">
+                                <label for="social">Social Media</label>
+                            </div>
+                            <div class="radio-group">
+                                <input type="radio" id="upi" name="identifier" value="upi">
+                                <label for="upi">UPI ID</label>
+                            </div>
+                        </div>
+
+                        <div class="input-section">
+                            <div class="warning-text">Do not add +91 with Mobile number</div>
+                            <input type="text" class="input-field" id="identifierInput" placeholder="Enter Mobile No" />
+                        </div>
+
+                        <div class="captcha-section">
+                            <div class="captcha-display" id="captchaDisplay">CaJKFG</div>
+                            <button class="captcha-refresh" onclick="refreshCaptcha()">⟳</button>
+                            <input type="text" class="captcha-input" placeholder="Enter Captcha" />
+                            <button class="search-button" onclick="searchIdentifier()">Search</button>
+                        </div>
+                    </div>
+
+                    <div class="disclaimer">
+                        <h3>Disclaimer*</h3>
+                        <p>This search database is created on the basis of cybercrime complaints received from the public. Indian Cybercrime Coordination Centre (I4C) does not certify the authenticity of complaints which are a matter of investigation with the local police authorities. This database is not complete as cybercriminals are known to rapidly create, change and dispose such identifiers. This database grows with increase in reporting of cybercrime. I4C agrees that there are chances of error in the reports which have been used to create this database, so user discretion is advised. If a user disagrees with the mention of a particular identifier on this database, he/she may send an email at cyberdost[at]mha[dot]gov[dot]in. duly explaining and substantiating his claim.</p>
+                    </div>
                 </div>
             </div>
         </main>
@@ -266,6 +448,88 @@
     </div>
     <script>
         lucide.createIcons();
+
+        // Generate random captcha
+        function generateCaptcha() {
+            const chars = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+            let captcha = '';
+            for (let i = 0; i < 6; i++) {
+                captcha += chars.charAt(Math.floor(Math.random() * chars.length));
+            }
+            return captcha;
+        }
+
+        // Refresh captcha
+        function refreshCaptcha() {
+            document.getElementById('captchaDisplay').textContent = generateCaptcha();
+        }
+
+        // Update placeholder based on selected identifier type
+        document.querySelectorAll('input[name="identifier"]').forEach(radio => {
+            radio.addEventListener('change', function() {
+                const input = document.getElementById('identifierInput');
+                const warningText = document.querySelector('.warning-text');
+                
+                switch(this.value) {
+                    case 'mobile':
+                        input.placeholder = 'Enter Mobile No';
+                        warningText.textContent = 'Do not add +91 with Mobile number';
+                        warningText.style.display = 'block';
+                        break;
+                    case 'email':
+                        input.placeholder = 'Enter E-mail Address';
+                        warningText.style.display = 'none';
+                        break;
+                    case 'bank':
+                        input.placeholder = 'Enter Bank Account Number';
+                        warningText.style.display = 'none';
+                        break;
+                    case 'social':
+                        input.placeholder = 'Enter Social Media Handle';
+                        warningText.style.display = 'none';
+                        break;
+                    case 'upi':
+                        input.placeholder = 'Enter UPI ID';
+                        warningText.style.display = 'none';
+                        break;
+                }
+            });
+        });
+
+        // Search function
+        function searchIdentifier() {
+            const selectedType = document.querySelector('input[name="identifier"]:checked').value;
+            const identifier = document.getElementById('identifierInput').value;
+            const captchaInput = document.querySelector('.captcha-input').value;
+            const captchaDisplay = document.getElementById('captchaDisplay').textContent;
+
+            if (!identifier) {
+                alert('Please enter an identifier to search');
+                return;
+            }
+
+            if (!captchaInput) {
+                alert('Please enter the captcha');
+                return;
+            }
+
+            if (captchaInput !== captchaDisplay) {
+                alert('Captcha does not match. Please try again.');
+                refreshCaptcha();
+                document.querySelector('.captcha-input').value = '';
+                return;
+            }
+
+            // Here you would typically make an API call to search the database
+            alert(`Searching for ${selectedType}: ${identifier}\n\nThis would connect to the cybercrime database.`);
+            
+            // Refresh captcha after search
+            refreshCaptcha();
+            document.querySelector('.captcha-input').value = '';
+        }
+
+        // Initialize with random captcha
+        refreshCaptcha();
     </script>
 </body>
 
