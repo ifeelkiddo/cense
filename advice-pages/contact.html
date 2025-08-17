@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Cyber Security Centre - Contact Us</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* General Body and Layout Styles */
+        body {
+            font-family: 'Tinos', serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            overflow-y: scroll;
+        }
+
+        main {
+            flex-grow: 1
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        @media (min-width:640px) {
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem
+            }
+        }
+
+        @media (min-width:1024px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem
+            }
+        }
+
+        .header {
+            background-image: linear-gradient(to bottom, #00aab6, #000000);
+            color: #ffffff
+        }
+
+        .top-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: .5rem;
+            padding-bottom: .5rem
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            height: 6rem
+        }
+
+        .logo-container img {
+            height: 3rem
+        }
+
+        .logo-container span {
+            font-size: 1.125rem;
+            letter-spacing: .025em;
+            line-height: 1.25
+        }
+
+        .utility-links-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem
+        }
+
+        .utility-nav {
+            display: none
+        }
+
+        @media (min-width:768px) {
+            .utility-nav {
+                display: flex
+            }
+        }
+
+        .utility-nav {
+            align-items: center;
+            background-color: rgba(0, 30, 32, .6);
+            border-radius: 9999px;
+            font-size: .75rem;
+            letter-spacing: .025em
+        }
+
+        .utility-nav a {
+            padding: .5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color .2s;
+            white-space: nowrap
+        }
+
+        .utility-nav a:hover {
+            background-color: rgba(255, 255, 255, .1)
+        }
+
+        .bottom-nav-bar {
+            border-bottom: 1px solid rgba(187, 247, 208, .2)
+        }
+
+        .bottom-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: -1px
+        }
+
+        .bottom-nav-links a {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            padding-left: .25rem;
+            padding-right: .25rem;
+            font-size: 1rem;
+            color: #ffffff;
+            white-space: nowrap;
+            transition: color .2s
+        }
+
+        .bottom-nav-links a:hover {
+            color: #8ae8ff
+        }
+
+        .bottom-nav-links .active-link {
+            border-bottom: 4px solid #ffffff;
+            color: #dcfce7
+        }
+
+        .hero-section {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem
+        }
+
+        @media (min-width:640px) {
+            .hero-section {
+                padding-top: 3.5rem;
+                padding-bottom: 3.5rem
+            }
+        }
+
+        .hero-section h1 {
+            font-size: 2.25rem;
+            letter-spacing: -.025em;
+            font-weight: 400
+        }
+
+        @media (min-width:640px) {
+            .hero-section h1 {
+                font-size: 3rem
+            }
+        }
+
+        .hero-section p {
+            margin-top: 1rem;
+            font-size: 1.125rem;
+            max-width: 48rem
+        }
+
+        @media (min-width:640px) {
+            .hero-section p {
+                font-size: 1.25rem
+            }
+        }
+        
+        .footer {
+            background-color: #991b1b;
+            color: white;
+            text-align: center
+        }
+
+        .footer-content {
+            padding-top: 3rem;
+            padding-bottom: 3rem
+        }
+
+        @media (min-width:640px) {
+            .footer-content {
+                padding-top: 4rem;
+                padding-bottom: 4rem
+            }
+        }
+
+        /* Contact Page Styles */
+        .contact-section {
+            padding: 2.5rem 0;
+        }
+        .contact-title {
+            font-size: 1.875rem;
+            text-align: center;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 2rem;
+        }
+        .search-controls {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            align-items: flex-end;
+        }
+        .search-controls input {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            flex-grow: 1;
+        }
+        .search-controls button {
+            padding: 0.5rem 1.5rem;
+            border-radius: 0.375rem;
+            color: white;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .download-btn {
+            background-color: #166534; /* green-800 */
+        }
+        .download-btn:hover {
+            background-color: #15803d; /* green-700 */
+        }
+        .table-container {
+            overflow-x: auto;
+        }
+        .contact-table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        .contact-table th, .contact-table td {
+            border: 1px solid #e5e7eb;
+            padding: 0.75rem;
+            text-align: left;
+        }
+        .contact-table thead {
+            background-color: #f3f4f6;
+        }
+        .contact-table th {
+            font-weight: 600;
+        }
+        .contact-table tbody tr:nth-child(even) {
+            background-color: #f9fafb;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 100%; display: flex; flex-direction: column; flex-grow: 1;">
+        <header class="header">
+            <div class="container">
+                <div class="top-nav-bar">
+                    <div class="logo-container">
+                        <img src="https://wallpapers.com/images/hd/india-national-emblem-lion-capital-44ajl3o7drdjqbf0.png"
+                            alt="Emblem">
+                        <span>National Cyber<br>Security Centre</span>
+                    </div>
+                    <div class="utility-links-container">
+                        <nav class="utility-nav">
+                            <a href="#">REPORT AN INCIDENT</a>
+                            <a href="#">TRACK COMPLAINT</a>
+                            <a href="contact.html">CONTACT US</a>
+                            <a href="#">LOGIN / SIGNUP</a>
+                        </nav>
+                    </div>
+                </div>
+                <nav class="bottom-nav-bar">
+                    <div class="bottom-nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="advice.html">Advice & guidance</a>
+                        <a href="respond.html">Report & Check Suspect</a>
+                        <a href="products.html">Find a product or service</a>
+                        <a href="education.html">Education & skills</a>
+                        <a href="news.html">News</a>
+                    </div>
+                </nav>
+                <div class="hero-section">
+                    <h1>The National Cyber Security Centre</h1>
+                    <p>Protecting India From Cyber Criminals.</p>
+                </div>
+            </div>
+        </header>
+        <main>
+            <section class="contact-section">
+                <div class="container">
+                    <h2 class="contact-title">Contact Us</h2>
+                    <div class="search-controls">
+                        <input type="text" id="stateSearch" placeholder="Search by State/UT...">
+                        <input type="text" id="nodalSearch" placeholder="Search by Nodal Officer...">
+                        <input type="text" id="grievanceSearch" placeholder="Search by Grievance Officer...">
+                        <button id="downloadBtn" class="download-btn">Download Data</button>
+                    </div>
+                    <div class="table-container">
+                        <table class="contact-table" id="contactTable">
+                            <thead>
+                                <tr>
+                                    <th>S No.</th>
+                                    <th>State/UT</th>
+                                    <th>Nodal Officer (Name, Rank)</th>
+                                    <th>Nodal Officer Email</th>
+                                    <th>Grievance Officer (Name, Rank)</th>
+                                    <th>Grievance Officer Contact</th>
+                                    <th>Grievance Officer Email</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <!-- Data will be populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 National Cyber Security Centre. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        lucide.createIcons();
+
+        const contactData = [
+            { sno: 1, state: "ANDAMAN & NICOBAR", nodalName: "Sh. Jitendra Kumar Meena, IPS", nodalRank: "SSP(CID)", nodalEmail: "spcid.and@nic.in", grievanceName: "Smt. Sindhu Pillai A, IPS", grievanceRank: "DIGP(Intl.)", grievanceContact: "03192-232334", grievanceEmail: "igp.and@nic.in" },
+            { sno: 2, state: "ANDHRA PRADESH", nodalName: "Mrs Krishna Prasanna Kumari", nodalRank: "SP Cyber Crimes, CID", nodalEmail: "cybercrimes1930@cid.appolice.gov.in", grievanceName: "Superintendent of Police", grievanceRank: "Superintendent of Police", grievanceContact: "8331043255", grievanceEmail: "cybercrimes-cid@ap.gov.in" },
+            { sno: 3, state: "ARUNACHAL PRADESH", nodalName: "Sh. Rohit Rajbir Singh, IPS", nodalRank: "S.P (Crime & SIT)", nodalEmail: "spsit@arupol.nic.in", grievanceName: "Sh. Take Ringu, IPS", grievanceRank: "IGP (Crime)", grievanceContact: "9436040703", grievanceEmail: "takeringu@ips.gov.in" },
+            { sno: 4, state: "ASSAM", nodalName: "Mrs. Indrani Baruah, IPS", nodalRank: "DIGP", nodalEmail: "digp-cid@assampolice.gov.in", grievanceName: "Sh. Debaraj Upadhaya, IPS", grievanceRank: "IGP, CID", grievanceContact: "0361-2521618", grievanceEmail: "igp-cid@assampolice.gov.in" },
+            { sno: 5, state: "BIHAR", nodalName: "Shri. Sushil Kumar IPS", nodalRank: "SP", nodalEmail: "cybercell-bih@nic.in", grievanceName: "Shri. Rajesh Tripathi", grievanceRank: "SSP", grievanceContact: "0612-2238098", grievanceEmail: "cybercell-bih@nic.in" },
+            { sno: 6, state: "CHANDIGARH", nodalName: "Sh. Ketan Bansal, IPS", nodalRank: "SP/CCIC", nodalEmail: "dspccic.chd@nic.in", grievanceName: "Sh. Raj Kumar Singh, IPS", grievanceRank: "IGP-UT", grievanceContact: "0172-2700056", grievanceEmail: "dig-chd@nic.in" },
+            { sno: 7, state: "CHHATTISGARH", nodalName: "Sh. Kavi Gupta", nodalRank: "AIG", nodalEmail: "aigtech-phq.cg@gov.in", grievanceName: "Shri Girija Shankar Jaiswal", grievanceRank: "DIG(Technical Services)", grievanceContact: "0771-2511989", grievanceEmail: "girijashankar.ips.@gov.in" },
+            { sno: 8, state: "DADRA & NAGAR HAVELI AND DAMAN & DIU", nodalName: "Shri Amit Sharma, IPS", nodalRank: "SP", nodalEmail: "phq-dd@nic.in", grievanceName: "Sh. Vikramjit Singh, IPS", grievanceRank: "DIGP", grievanceContact: "0260-2220140", grievanceEmail: "digp-daman-dd@nic.in" },
+            { sno: 9, state: "DELHI", nodalName: "Sh. Hemant Tiwari, IPS", nodalRank: "DCP/IFSO", nodalEmail: "ncrp.delhi@delhipolice.gov.in", grievanceName: "Sh. Rajneesh Gupta IPS", grievanceRank: "JT.CP, IFSO Special Cell", grievanceContact: "011-20892633", grievanceEmail: "jointcp.ifsosplcell@delhipolice.gov.in" },
+            { sno: 10, state: "GOA", nodalName: "Sh.Nidhin Valsan, IPS", nodalRank: "SP, Cyber Crime", nodalEmail: "spcyber@goapolice.gov.in", grievanceName: "Sh. Paramaditya", grievanceRank: "DIGP", grievanceContact: "0832-2420883", grievanceEmail: "digpgoa@goapolice.gov.in" },
+            { sno: 11, state: "GUJARAT", nodalName: "Sh. Dharmendra Sharma", nodalRank: "SP", nodalEmail: "cc-cid@gujarat.gov.in", grievanceName: "Sh. S.G. Trivedi", grievanceRank: "IGP", grievanceContact: "079-23250798", grievanceEmail: "cc-cid@gujarat.gov.in" },
+            { sno: 12, state: "HARYANA", nodalName: "Amit Dahiya, HPS", nodalRank: "SP, Cyber", nodalEmail: "dspscbggn@gmail.com", grievanceName: "Sh. Hamid Akhtar, IPS", grievanceRank: "DIG SCB-I", grievanceContact: "0172-2524058", grievanceEmail: "sp-cybercrimephq.pol@hry.gov.in" },
+            { sno: 13, state: "HIMACHAL PRADESH", nodalName: "IPS Mohit Chawla", nodalRank: "DIG", nodalEmail: "dig-cybercr-hp@nic.in", grievanceName: "Sh. D. K. Chaudhary", grievanceRank: "DIGP/Crime", grievanceContact: "0177-2620331", grievanceEmail: "adgp-cid-hp@nic.in" },
+            { sno: 14, state: "JAMMU & KASHMIR", nodalName: "Sh Arun Kumar Choudhary", nodalRank: "Spl. DGP", nodalEmail: "igcrime-jk@nic.in", grievanceName: "Sh. RR Swan", grievanceRank: "DGP", grievanceContact: "0191-25822926", grievanceEmail: "adgpcidjk@jkpolice.gov.in" },
+            { sno: 15, state: "JHARKHAND", nodalName: "Anuranjan Kisphotta", nodalRank: "S.P. Cyber Crime, CID", nodalEmail: "cyberps@jhpolice.gov.in", grievanceName: "-", grievanceRank: "S.P. Cyber Crime, CID", grievanceContact: "0651-2220060", grievanceEmail: "cyberps@jhpolice.gov.in" },
+            { sno: 16, state: "KARNATAKA", nodalName: "Sri Ravishankar K", nodalRank: "S.P, CT&R, CID", nodalEmail: "cybercrimenodal@ksp.gov.in", grievanceName: "Sri Shantanu Sinha, IPS", grievanceRank: "DIG, Cyber Crimes, Narcotic.CID", grievanceContact: "080-22942475", grievanceEmail: "spctrcid@ksp.gov.in" },
+            { sno: 17, state: "KERALA", nodalName: "HARI SANKAR IPS", nodalRank: "Superintendent of Police", nodalEmail: "spcyberops.pol@kerala.gov.in", grievanceName: "Sh H Venkatesh, IPS", grievanceRank: "ADGP", grievanceContact: "0471-2300042", grievanceEmail: "adgpcyberops.pol@kerala.gov.in" },
+            { sno: 18, state: "LADAKH", nodalName: "Farhan Jehanzeb Naqash", nodalRank: "SP IT PHQ Ladakh", nodalEmail: "itsec-phq@police.ladakh.gov.in", grievanceName: "Sh. Deepak Digra- JKPS", grievanceRank: "SP (AIG CIV PHQ UT Ladakh)", grievanceContact: "9541902324", grievanceEmail: "aig-civl@police.ladakh.gov.in" },
+            { sno: 19, state: "LAKSHADWEEP", nodalName: "Sh. Prakshay Kumar Singh DANIPS", nodalRank: "DSP (HQ)", nodalEmail: "cctns-lk@nic.in", grievanceName: "Sh.Hareshwar V Swami, IPS", grievanceRank: "SP (L&O)", grievanceContact: "04896262258", grievanceEmail: "lak-sop@nic.in" },
+            { sno: 20, state: "MADHYA PRADESH", nodalName: "Shri Mohammed Yusuf Qureshi, IPS", nodalRank: "DIG Cyber", nodalEmail: "mpcyberpolice@mppolice.gov.in", grievanceName: "Shri Yogesh Deshmukh", grievanceRank: "ADG, State Cyber Police", grievanceContact: "0755-2770248", grievanceEmail: "adg-cybercell@mppolice.gov.in" },
+            { sno: 21, state: "MAHARASHTRA", nodalName: "Sh. Yashasvi Yadav", nodalRank: "Special IGP", nodalEmail: "ig.cbr-mah@gov.in", grievanceName: "Sh. Sanjay Vilas Shintre", grievanceRank: "SP", grievanceContact: "022-22160080", grievanceEmail: "sp.cbr-mah@gov.in" },
+            { sno: 22, state: "MANIPUR", nodalName: "Shri N. John", nodalRank: "Superintendent of Police", nodalEmail: "sp-cybercrime.mn@manipur.gov.in", grievanceName: "Sh. Ningshem Worngam", grievanceRank: "DIGP (Int)", grievanceContact: "0385-2444888", grievanceEmail: "grievance.ncrp@gmail.com" },
+            { sno: 23, state: "MEGHALAYA", nodalName: "Miss. Neena Rabha, MPS", nodalRank: "DSP. ACB/CCW", nodalEmail: "ccw-meg@gov.in", grievanceName: "Pankaj Kumar Rasgania, IPS", grievanceRank: "SP(Cyber), PHQ", grievanceContact: "9402519391", grievanceEmail: "ccw-meg@gov.in" },
+            { sno: 24, state: "MIZORAM", nodalName: "LALHULIANA FANAI", nodalRank: "DIG (CID)", nodalEmail: "cidcrime-mz@nic.in", grievanceName: "Sh Devesh Chandra Srivastava, IPS", grievanceRank: "DGP", grievanceContact: "0389-2334682", grievanceEmail: "polmizo@rediffmail.com" },
+            { sno: 25, state: "NAGALAND", nodalName: "Vikram M Khalate, IPS", nodalRank: "IGP(CID)", nodalEmail: "igpcrime-ngl@nic.in", grievanceName: "Sh. Sandeep M. Tamgadge, IPS", grievanceRank: "ADGP (L&O)", grievanceContact: "6009308003", grievanceEmail: "adgplo.ngl@gov.in" },
+            { sno: 26, state: "ODISHA", nodalName: "Shri. Shefeen Ahamed K, IPS", nodalRank: "IGP, CID CB", nodalEmail: "igp2-cidcb@odishapolice.gov.in", grievanceName: "Sh. Arun Bothra, IPS", grievanceRank: "ADGP", grievanceContact: "0674-2913100", grievanceEmail: "adgcidcb.orpol@nic.in" },
+            { sno: 27, state: "PUDUCHERRY", nodalName: "Sh. Narra Chaitanya, IPS", nodalRank: "SSP(Traffic)", nodalEmail: "ssptraffic@py.gov.in", grievanceName: "Sh. Dr. V.J Chandran", grievanceRank: "IGP", grievanceContact: "0413-2231313", grievanceEmail: "igp@py.gov.in" },
+            { sno: 28, state: "PUNJAB", nodalName: "Jashandeep Singh Gill", nodalRank: "Superintendent of Police", nodalEmail: "aigcc@punjabpolice.gov.in", grievanceName: "Sh. P. K. Sinha, IPS", grievanceRank: "ADGP, Cyber Crime", grievanceContact: "0172-2226258", grievanceEmail: "igp.cyber.c.police@punjabpolice.gov.in" },
+            { sno: 29, state: "RAJASTHAN", nodalName: "Shri Shantanu Kumar Singh", nodalRank: "Superintendent of Police", nodalEmail: "sp.cybercrime@rajpolice.gov.in", grievanceName: "Shri Sharat Kaviraj", grievanceRank: "Inspector General of Police", grievanceContact: "01412821741", grievanceEmail: "sp.cybercrime@rajpolice.gov.in" },
+            { sno: 30, state: "SIKKIM", nodalName: "Sh. Kunzang Dorjee Shangdarpa", nodalRank: "DIGP", nodalEmail: "spcid@sikkimpolice.nic.in", grievanceName: "Sh. Abhishek Dahal", grievanceRank: "Police Inspector/CID", grievanceContact: "8695622134", grievanceEmail: "cybercrime666sk@gmail.com" },
+            { sno: 31, state: "TAMIL NADU", nodalName: "Tmt.M.Kingshlin", nodalRank: "Superintendent of Police", nodalEmail: "sp2cwc@gmail.com", grievanceName: "Sh. D. Ashok Kumar", grievanceRank: "SP(for OTHER CYBER CRIMES)", grievanceContact: "044-29580300", grievanceEmail: "sp1-ccdtnpolice@gov.in" },
+            { sno: 32, state: "TELANGANA", nodalName: "Shri Devender Singh", nodalRank: "SP, Cyber Crimes, TSCSB", nodalEmail: "spoperations-csb-ts@tspolice.gov.in", grievanceName: "Smt. Shikha Goel, IPS", grievanceRank: "Director, TSCSB", grievanceContact: "040-29320049", grievanceEmail: "director-tscsb@tspolice.gov.in" },
+            { sno: 33, state: "TRIPURA", nodalName: "MIHIR LAL DAS, TPS", nodalRank: "Superintendent of Police", nodalEmail: "spcybercrime@tripurapolice.nic.in", grievanceName: "Smt. Sudeshna Bhattacharyya, TPS", grievanceRank: "SP (SCRB)", grievanceContact: "0381-2376979", grievanceEmail: "spscrb@tripurapolice.nic.in" },
+            { sno: 34, state: "UTTARAKHAND", nodalName: "P RENUKA DEVI IPS", nodalRank: "DIG", nodalEmail: "spstf-uk@nic.in", grievanceName: "Sh. Ayush Agarwal", grievanceRank: "SSP/STF", grievanceContact: "0135-2655900", grievanceEmail: "spstf-uk@nic.in" },
+            { sno: 35, state: "UTTAR PRADESH", nodalName: "Rajesh Kumar Yadav", nodalRank: "SP", nodalEmail: "sp-cyber.lu@up.gov.in", grievanceName: "Binod Kumar Singh", grievanceRank: "ADG", grievanceContact: "0522-2390538", grievanceEmail: "adg-cybercrime.lu@up.gov.in" },
+            { sno: 36, state: "WEST BENGAL", nodalName: "Amitkumar B. Rathod, IPS", nodalRank: "DIG-I, Cyber Crime Wing", nodalEmail: "ccwwb-ncrp@policewb.gov.in", grievanceName: "Shri Sanjay Singh, IPS", grievanceRank: "DG & IGP, Cyber Crime Wing", grievanceContact: "33-23248072", grievanceEmail: "ccwwb-ncrp@policewb.gov.in" }
+        ];
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.querySelector('#contactTable tbody');
+            const stateSearch = document.getElementById('stateSearch');
+            const nodalSearch = document.getElementById('nodalSearch');
+            const grievanceSearch = document.getElementById('grievanceSearch');
+            const downloadBtn = document.getElementById('downloadBtn');
+
+            const populateTable = (data) => {
+                tableBody.innerHTML = '';
+                data.forEach(item => {
+                    const row = `
+                        <tr>
+                            <td>${item.sno}</td>
+                            <td>${item.state}</td>
+                            <td>${item.nodalName}, ${item.nodalRank}</td>
+                            <td>${item.nodalEmail}</td>
+                            <td>${item.grievanceName}, ${item.grievanceRank}</td>
+                            <td>${item.grievanceContact}</td>
+                            <td>${item.grievanceEmail}</td>
+                        </tr>
+                    `;
+                    tableBody.innerHTML += row;
+                });
+            };
+
+            const filterTable = () => {
+                const stateFilter = stateSearch.value.toLowerCase();
+                const nodalFilter = nodalSearch.value.toLowerCase();
+                const grievanceFilter = grievanceSearch.value.toLowerCase();
+
+                const filteredData = contactData.filter(item => {
+                    const stateMatch = item.state.toLowerCase().includes(stateFilter);
+                    const nodalMatch = item.nodalName.toLowerCase().includes(nodalFilter);
+                    const grievanceMatch = item.grievanceName.toLowerCase().includes(grievanceFilter);
+                    return stateMatch && nodalMatch && grievanceMatch;
+                });
+                populateTable(filteredData);
+            };
+
+            const downloadCSV = () => {
+                const table = document.getElementById('contactTable');
+                let csv = [];
+                for (let i = 0; i < table.rows.length; i++) {
+                    let row = [], cols = table.rows[i].querySelectorAll('td, th');
+                    for (let j = 0; j < cols.length; j++) {
+                        // Clean data for CSV
+                        let data = cols[j].innerText.replace(/"/g, '""');
+                        data = `"${data}"`;
+                        row.push(data);
+                    }
+                    csv.push(row.join(','));
+                }
+                const csvContent = "data:text/csv;charset=utf-8," + csv.join('\n');
+                const encodedUri = encodeURI(csvContent);
+                const link = document.createElement("a");
+                link.setAttribute("href", encodedUri);
+                link.setAttribute("download", "cyber_cell_contacts.csv");
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            };
+
+            stateSearch.addEventListener('keyup', filterTable);
+            nodalSearch.addEventListener('keyup', filterTable);
+            grievanceSearch.addEventListener('keyup', filterTable);
+            downloadBtn.addEventListener('click', downloadCSV);
+
+            populateTable(contactData);
+        });
+    </script>
+</body>
+
+</html>

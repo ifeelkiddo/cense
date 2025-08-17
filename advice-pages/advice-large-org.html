@@ -1,0 +1,319 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Cyber Security Centre - Advice for Large Organisations</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        body {
+            font-family: 'Tinos', serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            overflow-y: scroll
+        }
+
+        main {
+            flex-grow: 1
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        @media (min-width:640px) {
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem
+            }
+        }
+
+        @media (min-width:1024px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem
+            }
+        }
+
+        .header {
+            background-color: #365314;
+            color: #ffffff
+        }
+
+        .top-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: .5rem;
+            padding-bottom: .5rem
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            height: 6rem
+        }
+
+        .logo-container img {
+            height: 3rem
+        }
+
+        .logo-container span {
+            font-size: 1.125rem;
+            letter-spacing: .025em;
+            line-height: 1.25
+        }
+
+        .utility-links-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem
+        }
+
+        .utility-nav {
+            display: none
+        }
+
+        @media (min-width:768px) {
+            .utility-nav {
+                display: flex
+            }
+        }
+
+        .utility-nav {
+            align-items: center;
+            background-color: rgba(0, 0, 0, .2);
+            border-radius: 9999px;
+            font-size: .75rem;
+            letter-spacing: .025em
+        }
+
+        .utility-nav a {
+            padding: .5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color .2s;
+            white-space: nowrap
+        }
+
+        .utility-nav a:hover {
+            background-color: rgba(255, 255, 255, .1)
+        }
+
+        .bottom-nav-bar {
+            border-bottom: 1px solid rgba(187, 247, 208, .2)
+        }
+
+        .bottom-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: -1px
+        }
+
+        .bottom-nav-links a {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            padding-left: .25rem;
+            padding-right: .25rem;
+            font-size: 1rem;
+            color: #ffffff;
+            white-space: nowrap;
+            transition: color .2s
+        }
+
+        .bottom-nav-links a:hover {
+            color: #dcfce7
+        }
+
+        .bottom-nav-links .active-link {
+            border-bottom: 4px solid #ffffff;
+            color: #dcfce7
+        }
+
+        .hero-section {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem
+        }
+
+        @media (min-width:640px) {
+            .hero-section {
+                padding-top: 3.5rem;
+                padding-bottom: 3.5rem
+            }
+        }
+
+        .hero-section h1 {
+            font-size: 2.25rem;
+            letter-spacing: -.025em;
+            font-weight: 400
+        }
+
+        @media (min-width:640px) {
+            .hero-section h1 {
+                font-size: 3rem
+            }
+        }
+
+        .hero-section p {
+            margin-top: 1rem;
+            font-size: 1.125rem;
+            max-width: 48rem
+        }
+
+        @media (min-width:640px) {
+            .hero-section p {
+                font-size: 1.25rem
+            }
+        }
+
+        .footer {
+            background-color: #729200;
+            color: white;
+            text-align: center
+        }
+
+        .footer-content {
+            padding-top: 3rem;
+            padding-bottom: 3rem
+        }
+
+        @media (min-width:640px) {
+            .footer-content {
+                padding-top: 4rem;
+                padding-bottom: 4rem
+            }
+        }
+
+        .article-section {
+            padding-top: 2.5rem;
+            padding-bottom: 2.5rem
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: .5rem;
+            margin-bottom: 1.5rem;
+            color: #365314;
+            font-weight: 600;
+            cursor: pointer
+        }
+
+        .back-button:hover {
+            text-decoration: underline
+        }
+
+        .article-title {
+            font-size: 2.5rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #e5e7eb;
+            padding-bottom: 1rem
+        }
+
+        .article-content h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #374151;
+            margin-top: 2rem;
+            margin-bottom: 1rem
+        }
+
+        .article-content p {
+            margin-bottom: 1rem;
+            line-height: 1.7;
+            font-size: 1.125rem
+        }
+
+        .article-content ul {
+            list-style-type: disc;
+            padding-left: 2rem;
+            margin-bottom: 1rem
+        }
+
+        .article-content li {
+            margin-bottom: .5rem;
+            line-height: 1.7
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width: 100%; display: flex; flex-direction: column; flex-grow: 1;">
+        <header class="header">
+            <div class="container">
+                <div class="top-nav-bar">
+                    <div class="logo-container">
+                        <img src="https://wallpapers.com/images/hd/india-national-emblem-lion-capital-44ajl3o7drdjqbf0.png"
+                            alt="Emblem">
+                        <span>National Cyber<br>Security Centre</span>
+                    </div>
+                    <div class="utility-links-container">
+                        <nav class="utility-nav">
+                            <a href="#">REPORT AN INCIDENT</a>
+                            <a href="#">TRACK COMPLAINT</a>
+                            <a href="#">CONTACT US</a>
+                            <a href="#">LOGIN / SIGNUP</a>
+                        </nav>
+                    </div>
+                </div>
+                <nav class="bottom-nav-bar">
+                    <div class="bottom-nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="advice.html" class="active-link">Advice & guidance</a>
+                        <a href="respond.html">Report & Check Suspect</a>
+                        <a href="products.html">Find a product or service</a>
+                        <a href="education.html">Education & skills</a>
+                        <a href="news.html">News</a>
+                    </div>
+                </nav>
+                <div class="hero-section">
+                    <h1>The National Cyber Security Centre</h1>
+                    <p>Protecting India From Cyber Criminals.</p>
+                </div>
+            </div>
+        </header>
+        <main>
+            <div class="article-section">
+                <div class="container">
+                    <a href="advice.html" class="back-button"><i data-lucide="chevron-left"></i> Back to all
+                        guidance</a>
+                    <article class="article-content">
+                        <h2 class="article-title">Advice for Large Organisations</h2>
+                        <p>This area will focus on advanced topics like threat intelligence, incident response planning,
+                            supply chain security, and managing complex enterprise-level security challenges.</p>
+                    </article>
+                </div>
+            </div>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 National Cyber Security Centre. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+
+</html>
