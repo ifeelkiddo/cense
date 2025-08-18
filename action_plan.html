@@ -17,57 +17,16 @@
             min-height: 100vh;
             margin: 0;
         }
-
-        main {
-            flex-grow: 1
-        }
-
-        a {
-            text-decoration: none;
-            color: inherit
-        }
-
-        .container {
-            max-width: 80rem;
-            margin: auto;
-            padding: 0 1rem;
-        }
-
-        .header {
-            background-color: #365314;
-            color: #ffffff;
-        }
-
-        .top-nav-bar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: .5rem 0;
-        }
-
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: .75rem;
-            height: 6rem;
-        }
-
-        .logo-container img {
-            height: 3rem;
-        }
-
-        .logo-container span {
-            font-size: 1.125rem;
-            line-height: 1.25;
-        }
-
-        .footer {
-            background-color: #729200;
-            color: white;
-            text-align: center;
-            padding: 3rem 1rem;
-        }
-
+        main { flex-grow: 1 }
+        a { text-decoration: none; color: inherit }
+        .container { max-width: 80rem; margin: auto; padding: 0 1rem; }
+        .header { background-color: #365314; color: #ffffff; }
+        .top-nav-bar { display: flex; justify-content: space-between; align-items: center; padding: .5rem 0; }
+        .logo-container { display: flex; align-items: center; gap: .75rem; height: 6rem; }
+        .logo-container img { height: 3rem; }
+        .logo-container span { font-size: 1.125rem; line-height: 1.25; }
+        .footer { background-color: #729200; color: white; text-align: center; padding: 3rem 1rem; }
+        
         /* Questionnaire Styles */
         .question-wrapper {
             max-width: 48rem;
@@ -75,25 +34,11 @@
             padding: 2rem;
             background: white;
             border-radius: 0.5rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,.1), 0 2px 4px -1px rgba(0,0,0,.06);
         }
-
-        .question-title {
-            font-size: 1.75rem;
-            font-weight: 700;
-            color: #1f2937;
-        }
-
-        .question-description {
-            font-size: 1.125rem;
-            color: #4b5563;
-            margin-top: 0.5rem;
-        }
-
-        .answers-container {
-            margin-top: 2rem;
-        }
-
+        .question-title { font-size: 1.75rem; font-weight: 700; color: #1f2937; }
+        .question-description { font-size: 1.125rem; color: #4b5563; margin-top: 0.5rem; }
+        .answers-container { margin-top: 2rem; }
         .answer-label {
             display: block;
             background: #f3f4f6;
@@ -104,18 +49,11 @@
             border: 2px solid transparent;
             transition: all 0.2s;
         }
-
-        .answer-label:hover {
-            background: #e5e7eb;
+        .answer-label:hover { background: #e5e7eb; }
+        input[type="radio"]:checked + .answer-label {
+            border-color: #4ade80; /* green-400 */
+            background: #f0fdf4; /* green-50 */
         }
-
-        input[type="radio"]:checked+.answer-label {
-            border-color: #4ade80;
-            /* green-400 */
-            background: #f0fdf4;
-            /* green-50 */
-        }
-
         .nav-buttons {
             display: flex;
             justify-content: flex-end;
@@ -123,7 +61,6 @@
             border-top: 1px solid #e5e7eb;
             padding-top: 1.5rem;
         }
-
         .btn {
             padding: 0.75rem 1.5rem;
             border-radius: 0.5rem;
@@ -131,35 +68,24 @@
             cursor: pointer;
             transition: background-color 0.2s;
         }
-
-        .btn-primary {
-            background-color: #365314;
-            color: white;
-        }
-
-        .btn-primary:hover {
-            background-color: #4d7c0f;
-        }
-
+        .btn-primary { background-color: #365314; color: white; }
+        .btn-primary:hover { background-color: #4d7c0f; }
+        
         /* Results Styles */
         .result-wrapper {
             max-width: 48rem;
             margin: 2rem auto;
         }
-
         .result-block {
             margin-top: 2.5rem;
         }
-
         .result-block-title {
             font-family: 'Inter', sans-serif;
-            font-size: 1.875rem;
-            /* text-3xl */
+            font-size: 1.875rem; /* text-3xl */
             font-weight: 700;
             color: #1f2937;
             margin-bottom: 1rem;
         }
-
         .result-section {
             font-family: 'Inter', sans-serif;
             background: white;
@@ -167,52 +93,36 @@
             border: 1px solid #e5e7eb;
             border-left-width: 4px;
             padding: 1.5rem;
-            margin-bottom: 1.5rem;
-            /* Space between sections under the same title */
+            margin-bottom: 1.5rem; /* Space between sections under the same title */
         }
-
         .result-section.urgent {
-            border-left-color: #f97316;
-            /* orange-500 */
+            border-left-color: #f97316; /* orange-500 */
         }
-
         .result-section.normal {
-            border-left-color: #4d7c0f;
-            /* theme green */
+            border-left-color: #4d7c0f; /* theme green */
         }
-
         .result-section h3 {
             display: flex;
             align-items: center;
-            font-size: 0.875rem;
-            /* text-sm */
+            font-size: 0.875rem; /* text-sm */
             font-weight: 700;
-            color: #ea580c;
-            /* orange-600 */
+            color: #ea580c; /* orange-600 */
             text-transform: uppercase;
         }
-
         .result-section h4 {
-            font-size: 1.5rem;
-            /* text-2xl */
+            font-size: 1.5rem; /* text-2xl */
             font-weight: 700;
             color: #1f2937;
             margin-top: 0.75rem;
             margin-bottom: 1rem;
         }
-
-        .result-section p,
-        .result-section li {
+        .result-section p, .result-section li {
             font-family: 'Tinos', serif;
             line-height: 1.7;
             margin-bottom: 1rem;
             color: #374151;
         }
-
-        .result-section a {
-            color: #2563eb;
-            text-decoration: underline;
-        }
+        .result-section a { color: #2563eb; text-decoration: underline; }
     </style>
 </head>
 
@@ -221,8 +131,7 @@
         <div class="container">
             <div class="top-nav-bar">
                 <div class="logo-container">
-                    <img src="https://wallpapers.com/images/hd/india-national-emblem-lion-capital-44ajl3o7drdjqbf0.png"
-                        alt="Emblem">
+                    <img src="https://wallpapers.com/images/hd/india-national-emblem-lion-capital-44ajl3o7drdjqbf0.png" alt="Emblem">
                     <span>National Cyber<br>Security Centre</span>
                 </div>
             </div>
@@ -234,10 +143,9 @@
                 <!-- Questions will be injected here -->
             </div>
             <div id="results-container" class="hidden">
-                <div class="result-wrapper">
+                 <div class="result-wrapper">
                     <h2 class="text-3xl font-bold text-center">Your result</h2>
-                    <p class="text-center mt-2 text-lg">Based on the answers you've provided, we've identified the
-                        actions below that we strongly recommend to protect yourself online.</p>
+                    <p class="text-center mt-2 text-lg">Based on the answers you've provided, we've identified the actions below that we strongly recommend to protect yourself online.</p>
                 </div>
                 <!-- Results will be injected here -->
             </div>
@@ -317,15 +225,15 @@
             let resultsHTML = '';
 
             if (userAnswers.q1?.includes('No') || userAnswers.q2?.includes('No')) {
-                resultsHTML += `<div class="result-block"><h2 class="result-block-title">Protect your email and social media accounts</h2><div class="result-section urgent"><h3>URGENT</h3><h4>Change your passwords on your email and social media accounts</h4><p>If a cyber criminal gets access to your email account, they could:</p><ul class="list-disc list-inside mb-4"><li>read your emails and access private information about you</li><li>reset the passwords on your other accounts</li><li>send emails to your contacts pretending to be you, or imitate you on social media platforms</li></ul><p>You should use strong and separate passwords for each one of your email and social media accounts so that if one account is hacked, a cyber criminal won’t be able to access the others using the same password.</p><p><strong>Tips on how to create and remember strong passwords:</strong></p><ul class="list-disc list-inside"><li><a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words" target="_blank">Create strong passwords using three random words (opens in a new tab)</a></li><li><a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/password-managers" target="_blank">Save your passwords to your browser (opens in a new tab)</a></li></ul></div></div>`;
+                resultsHTML += `<div class="result-block"><h2 class="result-block-title">Protect your email and social media accounts</h2><div class="result-section urgent"><h3>URGENT</h3><h4>Change your passwords on your email and social media accounts</h4><p>If a cyber criminal gets access to your email account, they could:</p><ul class="list-disc list-inside mb-4"><li>read your emails and access private information about you</li><li>reset the passwords on your other accounts</li><li>send emails to your contacts pretending to be you, or imitate you on social media platforms</li></ul><p>You should use strong and separate passwords for each one of your email and social media accounts so that if one account is hacked, a cyber criminal won’t be able to access the others using the same password.</p><p><strong>Tips on how to create and remember strong passwords:</strong></p><ul class="list-disc list-inside"><li>Create strong passwords using three random words (opens in a new tab)</li><li>Save your passwords to your browser (opens in a new tab)</li></ul></div></div>`;
             }
             if (userAnswers.q3?.includes('No')) {
-                resultsHTML += `<div class="result-block"><div class="result-section urgent"><h3>URGENT</h3><h4>Turn on 2-step verification (2SV) for all your important personal accounts</h4><p>2SV asks for another way to prove your identity when you sign in to a service, such as a PIN or code that is sent to your phone. You then need to enter this PIN to prove it's really you.</p><p><strong>Here's how you enable 2SV on some popular services:</strong></p><ul class="list-disc list-inside"><li><a href="#" target="_blank">Outlook (opens in a new tab)</a></li><li><a href="#" target="_blank">Gmail (opens in a new tab)</a></li></ul></div></div>`;
+                resultsHTML += `<div class="result-block"><div class="result-section urgent"><h3>URGENT</h3><h4>Turn on 2-step verification (2SV) for all your important personal accounts</h4><p>2SV asks for another way to prove your identity when you sign in to a service, such as a PIN or code that is sent to your phone. You then need to enter this PIN to prove it's really you.</p><p><strong>Here's how you enable 2SV on some popular services:</strong></p><ul class="list-disc list-inside"><li>Outlook (opens in a new tab)</li><li>Gmail (opens in a new tab)</li></ul></div></div>`;
             }
             if (userAnswers.q4?.includes('No')) {
                 resultsHTML += `<div class="result-block"><h2 class="result-block-title">Back up your data</h2><div class="result-section urgent"><h3>URGENT</h3><h4>Back up all your important data</h4><p>Having a backup of all your important data will help you recover more quickly from a hack, or a lost or broken device. It will also make sure you don’t permanently lose important emails, documents or photos.</p></div><div class="result-section normal"><h4>Turn on automatic backups</h4><p>Enabling automatic backups is the most reliable way to ensure you have a recent copy of all your important data if you are hacked or lose your device.</p></div></div>`;
             }
-
+            
             let deviceProtectionHTML = '';
             if (userAnswers.q6?.includes('No')) {
                 deviceProtectionHTML += `<div class="result-section normal"><h4>Enable the security features for all your personal devices</h4><p>If you've just bought a new device, or haven't reviewed your security settings for a while, you should check the following are switched on: PIN code, password, fingerprint or face ID, auto-lock, and Find My Device / Play Protect.</p></div>`;
@@ -340,12 +248,12 @@
                 deviceProtectionHTML += `<div class="result-section normal"><h4>Check your apps and software are from an official store</h4><p>You should only download software and apps from official stores, like Google Play or Apple App Store. They scan software for viruses before making it available.</p></div>`;
             }
 
-            if (deviceProtectionHTML) {
+            if(deviceProtectionHTML) {
                 resultsHTML += `<div class="result-block"><h2 class="result-block-title">Protect your devices</h2>${deviceProtectionHTML}</div>`;
             }
 
-            if (resultsHTML === '') {
-                resultsHTML = `<div class="result-wrapper"><div class="result-section text-center"><h3 class="text-green-600">GREAT WORK!</h3><h4 class="text-2xl">You're doing a great job at protecting yourself online.</h4><p>Based on your answers, you already have key security measures in place. Keep it up!</p></div></div>`;
+            if(resultsHTML === '') {
+                 resultsHTML = `<div class="result-wrapper"><div class="result-section text-center"><h3 class="text-green-600">GREAT WORK!</h3><h4 class="text-2xl">You're doing a great job at protecting yourself online.</h4><p>Based on your answers, you already have key security measures in place. Keep it up!</p></div></div>`;
             }
 
             resultsContainer.innerHTML += resultsHTML;
