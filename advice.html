@@ -5,9 +5,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Cyber Security Centre - Advice & Guidance</title>
+    <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
+        /* General Body and Layout Styles */
         body {
             font-family: 'Tinos', serif;
             background-color: #f8f9fa;
@@ -16,7 +18,7 @@
             flex-direction: column;
             min-height: 100vh;
             margin: 0;
-            overflow-y: scroll
+            overflow-y: scroll;
         }
 
         main {
@@ -51,7 +53,8 @@
         }
 
         .header {
-            background-image: linear-gradient(to bottom, #00aab6, #000000);
+            background-color: #365314;
+            /* New solid dark green color */
             color: #ffffff
         }
 
@@ -98,7 +101,8 @@
 
         .utility-nav {
             align-items: center;
-            background-color: rgba(0, 30, 32, .6);
+            background-color: rgba(0, 0, 0, .2);
+            /* Darker overlay for contrast */
             border-radius: 9999px;
             font-size: .75rem;
             letter-spacing: .025em
@@ -138,7 +142,7 @@
         }
 
         .bottom-nav-links a:hover {
-            color: #8ae8ff
+            color: #dcfce7;
         }
 
         .bottom-nav-links .active-link {
@@ -183,7 +187,7 @@
         }
 
         .footer {
-            background-color: #991b1b;
+            background-color: #729200;
             color: white;
             text-align: center
         }
@@ -200,9 +204,10 @@
             }
         }
 
+        /* Guidance Section Styles */
         .guidance-section {
             padding-top: 2.5rem;
-            padding-bottom: 2.5rem
+            padding-bottom: 2.5rem;
         }
 
         .guidance-title {
@@ -210,69 +215,280 @@
             text-align: center;
             font-weight: 600;
             color: #374151;
-            margin-bottom: 2rem
+            margin-bottom: 2rem;
         }
 
         .guidance-grid {
             display: grid;
             grid-template-columns: repeat(1, 1fr);
-            gap: 1rem
+            gap: 1rem;
         }
 
-        @media (min-width:1024px) {
+        @media (min-width: 1024px) {
             .guidance-grid {
-                grid-template-columns: repeat(2, 1fr)
+                grid-template-columns: repeat(2, 1fr);
             }
         }
 
         .guidance-card {
-            background-color: #f3f4f6;
-            border-radius: .5rem;
+            background-color: #c3ddc34f;
+            border-radius: 0.5rem;
             padding: 1rem 1.5rem;
             display: flex;
             align-items: center;
             justify-content: space-between;
             gap: 1rem;
-            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, .1), 0 1px 2px 0 rgba(0, 0, 0, .06);
-            transition: box-shadow .3s, transform .3s;
-            cursor: pointer
+            box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.1), 0 1px 2px 0 rgba(0, 0, 0, 0.06);
+            transition: box-shadow 0.3s, transform 0.3s;
+            cursor: pointer;
         }
 
         .guidance-card:hover {
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
-            transform: translateY(-2px)
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+            transform: translateY(-2px);
         }
 
         .guidance-card-content {
             display: flex;
             align-items: center;
-            gap: 1rem
+            gap: 1rem;
         }
 
         .guidance-icon-wrapper {
             width: 3rem;
             height: 3rem;
             flex-shrink: 0;
-            background-color: #ccfbf1;
+            background-color: #dcfce7;
+            /* Light Green */
             border-radius: 9999px;
             display: flex;
             align-items: center;
-            justify-content: center
+            justify-content: center;
         }
 
         .guidance-icon-wrapper i {
             width: 1.5rem;
             height: 1.5rem;
-            color: #115e59
+            color: #4d7c0f;
+            /* Lime Green */
         }
 
         .guidance-card p {
             font-weight: 600;
-            color: #374151
+            color: #374151;
         }
 
         .guidance-chevron {
-            color: #9ca3af
+            color: #9ca3af;
+        }
+
+        .advice-content {
+            display: none;
+            /* Hidden by default */
+        }
+
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            margin-bottom: 1.5rem;
+            color: #65a30d;
+            /* Lime Green */
+            font-weight: 600;
+            cursor: pointer;
+        }
+
+        .advice-article h3 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: #374151;
+            margin-bottom: 1rem;
+        }
+
+        .advice-article p {
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        /* New Action Plan Block Style */
+        .action-plan-block {
+            background-color: #CEE5FE;
+            /* Very light green */
+            padding: 2.5rem 0;
+            /* Reduced padding */
+        }
+
+        .action-plan-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .action-plan-content {
+                flex-direction: row;
+                gap: 3rem;
+            }
+        }
+
+        .action-plan-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        @media (min-width: 1024px) {
+            .action-plan-text {
+                text-align: left;
+            }
+        }
+
+        .action-plan-image {
+            flex-shrink: 0;
+            width: 200px;
+            /* Reduced image size */
+        }
+
+        .action-plan-block h2 {
+            font-size: 1.75rem;
+            /* Reduced font size */
+            font-weight: 700;
+            color: #09003b;
+            /* Dark green */
+        }
+
+        .action-plan-block p {
+            font-size: 1.125rem;
+            /* Reduced font size */
+            line-height: 1.7;
+            color: #040038;
+            /* Medium green */
+            margin-top: 0.75rem;
+        }
+
+        /* Protecting Your Data Section */
+        .info-section {
+            padding: 4rem 0;
+        }
+
+        .info-title {
+            font-size: 1.875rem;
+            font-weight: 700;
+            color: #000000;
+            margin-bottom: 0.5rem;
+        }
+
+        .info-subtitle {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-bottom: 2.5rem;
+        }
+
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .info-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+        }
+
+        .info-card {
+            display: flex;
+            gap: 1.5rem;
+            align-items: flex-start;
+        }
+
+        .info-card img {
+            width: 160px;
+            height: 120px;
+            object-fit: cover;
+            border-radius: 0.5rem;
+            flex-shrink: 0;
+        }
+
+        .info-card-content h3 {
+            font-size: 1.25rem;
+            font-weight: 700;
+            color: #111827;
+        }
+
+        .info-card-content p {
+            margin-top: 0.25rem;
+            color: #4b5563;
+            line-height: 1.6;
+        }
+
+        /* New Respond & Recover Block */
+        .respond-block {
+            background-color: #8df0ab5e;
+            padding: 0rem 0;
+        }
+
+        .respond-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 2rem;
+        }
+
+        @media (min-width: 1024px) {
+            .respond-content {
+                flex-direction: row;
+                gap: 3rem;
+            }
+        }
+
+        .respond-text {
+            flex: 1;
+            text-align: center;
+        }
+
+        @media (min-width: 1024px) {
+            .respond-text {
+                text-align: left;
+            }
+        }
+
+        .respond-text h2 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #14532d;
+        }
+
+        .respond-text p {
+            margin-top: 0.75rem;
+            font-size: 1.125rem;
+            line-height: 1.6;
+            color: #166534;
+        }
+
+        .respond-text p a {
+            text-decoration: underline;
+        }
+
+        .respond-button {
+            margin-top: 1.5rem;
+            display: inline-block;
+            background-color: #365314;
+            color: white;
+            font-weight: 700;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .respond-button:hover {
+            background-color: #4d7c0f;
+        }
+
+        .respond-image {
+            flex-shrink: 0;
+            width: 280px;
+            /* Increased image size */
         }
     </style>
 </head>
@@ -289,9 +505,9 @@
                     </div>
                     <div class="utility-links-container">
                         <nav class="utility-nav">
-                            <a href="report-incident.html">REPORT AN INCIDENT</a>
+                            <a href="#">REPORT AN INCIDENT</a>
                             <a href="#">TRACK COMPLAINT</a>
-                            <a href="contact.html">CONTACT US</a>
+                            <a href="#">CONTACT US</a>
                             <a href="#">LOGIN / SIGNUP</a>
                         </nav>
                     </div>
@@ -315,53 +531,307 @@
         <main>
             <div class="guidance-section">
                 <div class="container">
-                    <h2 class="guidance-title">Find guidance and resources for...</h2>
-                    <div class="guidance-grid">
-                        <a href="advice-family.html" class="guidance-card">
-                            <div class="guidance-card-content">
-                                <div class="guidance-icon-wrapper"><i data-lucide="users"></i></div>
-                                <p>You & your family</p>
+
+                    <!-- This is the main menu of guidance blocks -->
+                    <div id="guidance-menu">
+                        <h2 class="guidance-title">Find guidance and resources for...</h2>
+                        <div class="guidance-grid">
+                            <div class="guidance-card" data-target="advice-family">
+                                <div class="guidance-card-content">
+                                    <div class="guidance-icon-wrapper"><i data-lucide="users"></i></div>
+                                    <p>You & your family</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="guidance-chevron"></i>
                             </div>
-                            <i data-lucide="chevron-right" class="guidance-chevron"></i>
-                        </a>
-                        <a href="advice-sme.html" class="guidance-card">
-                            <div class="guidance-card-content">
-                                <div class="guidance-icon-wrapper"><i data-lucide="user"></i></div>
-                                <p>Self employed & sole traders</p>
+                            <div class="guidance-card" data-target="advice-sme">
+                                <div class="guidance-card-content">
+                                    <div class="guidance-icon-wrapper"><i data-lucide="user"></i></div>
+                                    <p>Self employed & sole traders</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="guidance-chevron"></i>
                             </div>
-                            <i data-lucide="chevron-right" class="guidance-chevron"></i>
-                        </a>
-                        <a href="advice-org.html" class="guidance-card">
-                            <div class="guidance-card-content">
-                                <div class="guidance-icon-wrapper"><i data-lucide="building"></i></div>
-                                <p>Small & medium sized organisations</p>
+                            <div class="guidance-card" data-target="advice-org">
+                                <div class="guidance-card-content">
+                                    <div class="guidance-icon-wrapper"><i data-lucide="building"></i></div>
+                                    <p>Small & medium sized organisations</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="guidance-chevron"></i>
                             </div>
-                            <i data-lucide="chevron-right" class="guidance-chevron"></i>
-                        </a>
-                        <a href="advice-large-org.html" class="guidance-card">
-                            <div class="guidance-card-content">
-                                <div class="guidance-icon-wrapper"><i data-lucide="building-2"></i></div>
-                                <p>Large organisations</p>
+                            <div class="guidance-card" data-target="advice-large-org">
+                                <div class="guidance-card-content">
+                                    <div class="guidance-icon-wrapper"><i data-lucide="building-2"></i></div>
+                                    <p>Large organisations</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="guidance-chevron"></i>
                             </div>
-                            <i data-lucide="chevron-right" class="guidance-chevron"></i>
-                        </a>
-                        <a href="advice-public.html" class="guidance-card">
-                            <div class="guidance-card-content">
-                                <div class="guidance-icon-wrapper"><i data-lucide="crown"></i></div>
-                                <p>Public sector</p>
+                            <div class="guidance-card" data-target="advice-public">
+                                <div class="guidance-card-content">
+                                    <div class="guidance-icon-wrapper"><i data-lucide="crown"></i></div>
+                                    <p>Public sector</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="guidance-chevron"></i>
                             </div>
-                            <i data-lucide="chevron-right" class="guidance-chevron"></i>
-                        </a>
-                        <a href="advice-pro.html" class="guidance-card">
-                            <div class="guidance-card-content">
-                                <div class="guidance-icon-wrapper"><i data-lucide="lock"></i></div>
-                                <p>Cyber security professionals</p>
+                            <div class="guidance-card" data-target="advice-pro">
+                                <div class="guidance-card-content">
+                                    <div class="guidance-icon-wrapper"><i data-lucide="lock"></i></div>
+                                    <p>Cyber security professionals</p>
+                                </div>
+                                <i data-lucide="chevron-right" class="guidance-chevron"></i>
                             </div>
-                            <i data-lucide="chevron-right" class="guidance-chevron"></i>
-                        </a>
+                        </div>
+                    </div>
+
+                    <!-- Detailed Advice Content (Hidden by default) -->
+                    <div id="advice-family" class="advice-content">
+                        <div class="back-button"><i data-lucide="chevron-left"></i> Back to all guidance</div>
+                        <article class="advice-article">
+                            <h3>Advice for You & your Family</h3>
+                            <p>This is where the detailed, multi-page article for family cyber security would go. It
+                                would cover topics like setting strong passwords, recognizing phishing scams, securing
+                                your home Wi-Fi network, and protecting children online. We can include images, videos,
+                                and checklists to make the information easy to digest.</p>
+                        </article>
+                    </div>
+                    <div id="advice-sme" class="advice-content">
+                        <div class="back-button"><i data-lucide="chevron-left"></i> Back to all guidance</div>
+                        <article class="advice-article">
+                            <h3>Advice for Self Employed & Sole Traders</h3>
+                            <p>This is the detailed content for self-employed individuals. Topics would include securing
+                                client data, safe online banking practices, and protecting your business from common
+                                scams targeting small enterprises.</p>
+                        </article>
+                    </div>
+                    <div id="advice-org" class="advice-content">
+                        <div class="back-button"><i data-lucide="chevron-left"></i> Back to all guidance</div>
+                        <article class="advice-article">
+                            <h3>Advice for Small & Medium Sized Organisations</h3>
+                            <p>This area will provide resources for implementing security policies, training staff, and
+                                protecting company networks from common threats like malware and business email
+                                compromise.</p>
+                        </article>
+                    </div>
+                    <div id="advice-large-org" class="advice-content">
+                        <div class="back-button"><i data-lucide="chevron-left"></i> Back to all guidance</div>
+                        <article class="advice-article">
+                            <h3>Advice for Large Organisations</h3>
+                            <p>This area will focus on advanced topics like threat intelligence, incident response
+                                planning, supply chain security, and managing complex enterprise-level security
+                                challenges.</p>
+                        </article>
+                    </div>
+                    <div id="advice-public" class="advice-content">
+                        <div class="back-button"><i data-lucide="chevron-left"></i> Back to all guidance</div>
+                        <article class="advice-article">
+                            <h3>Advice for the Public Sector</h3>
+                            <p>This area will offer guidance specific to government agencies and public services,
+                                focusing on compliance, protecting citizen data, and securing critical national
+                                infrastructure.</p>
+                        </article>
+                    </div>
+                    <div id="advice-pro" class="advice-content">
+                        <div class="back-button"><i data-lucide="chevron-left"></i> Back to all guidance</div>
+                        <article class="advice-article">
+                            <h3>Advice for Cyber Security Professionals</h3>
+                            <p>This area will feature technical reports, in-depth vulnerability analysis, information on
+                                the latest attack vectors, and professional development resources for security experts.
+                            </p>
+                        </article>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- New Action Plan Block -->
+            <div class="action-plan-block">
+                <div class="container">
+                    <div class="action-plan-content">
+                        <img src="https://www.ncsc.gov.uk/images/library/Family.svg?mpwidth=673&mlwidth=898&twidth=468&dwidth=512&dpr=1&width=1865"
+                            alt="Illustration of a family using devices" class="action-plan-image">
+                        <div class="action-plan-text">
+                            <h2>Want to improve your personal cyber security?</h2>
+                            <p>Answer a few simple questions to get a free personalised cyber action plan.</p>
+                            <a href="action_plan.html"
+                                class="mt-6 inline-block bg-white text-black font-bold py-3 px-8 rounded-lg hover:bg-gray-200 transition-colors border border-black">
+                                Get action plan
+                            </a>
+                        </div>
                     </div>
                 </div>
             </div>
+
+            <!-- Protecting Your Data Section -->
+            <div class="info-section">
+                <div class="container">
+                    <h2 class="info-title">Protecting your data</h2>
+                    <p class="info-subtitle">Advice from our website that will help you learn more about how to protect
+                        your devices.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <img src="https://th.bing.com/th/id/OIP.jERfgqmkAq_UCgZsOKS-uQHaD_?o=7rm=3&rs=1&pid=ImgDetMain&o=7&rm=3"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/3b82f6/ffffff?text=Breaches';"
+                                alt="Data Breaches">
+                            <div class="info-card-content">
+                                <h3>Data breaches: guidance for individuals and families</h3>
+                                <p>How to protect yourself from the impact of data breaches</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=2070&auto=format&fit=crop"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/10b981/ffffff?text=Gaming';"
+                                alt="Online Gaming">
+                            <div class="info-card-content">
+                                <h3>Online gaming for families and individuals</h3>
+                                <p>How to enjoy online gaming securely by following just a few tips</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://images.unsplash.com/photo-1563013544-824ae1b704d3?q=80&w=2070&auto=format&fit=crop"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/8b5cf6/ffffff?text=Shopping';"
+                                alt="Online Shopping">
+                            <div class="info-card-content">
+                                <h3>Shopping and paying safely online</h3>
+                                <p>Tips to help you purchase items safely and avoid fraudulent websites.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://images.unsplash.com/photo-1611162617213-7d7a39e9b1d7?q=80&w=1974&auto=format&fit=crop"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/ec4899/ffffff?text=Social';"
+                                alt="Social Media">
+                            <div class="info-card-content">
+                                <h3>Social Media: how to use it safely</h3>
+                                <p>Use privacy settings across social media platforms to manage your digital footprint.
+                                </p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://images.unsplash.com/photo-1543286386-713bdd548da4?q=80&w=2070&auto=format&fit=crop"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/f97316/ffffff?text=Scams';"
+                                alt="Sextortion Emails">
+                            <div class="info-card-content">
+                                <h3>Sextortion emails: how to protect yourself</h3>
+                                <p>Advice in response to the increase in sextortion scams</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://chromeunboxed.com/wp-content/uploads/2021/02/google-meet-safety-engagement-tools-1.jpg"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/06b6d4/ffffff?text=Video';"
+                                alt="Video Conferencing">
+                            <div class="info-card-content">
+                                <h3>Video conferencing services: using them securely</h3>
+                                <p>How to set up and use video conferencing services, such as Zoom and Skype, safely and
+                                    securely</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Respond & Recover Block -->
+            <div class="respond-block">
+                <div class="container">
+                    <div class="respond-content">
+                        <div class="respond-text">
+                            <h2>Experienced a scam or cyber attack?</h2>
+                            <p>Visit <a href="#">respond & recover</a> to find resources for individuals in the UK who
+                                have experienced an online scam or cyber attack.</p>
+                            <a href="#" class="respond-button">Visit respond & recover</a>
+                        </div>
+                        <div class="respond-image">
+                            <img src="https://www.ncsc.gov.uk/images/library/Early-Warning_Phone_notification_2.svg?mpwidth=673&mlwidth=898&twidth=468&dwidth=512&dpr=0.75&width=2486"
+                                alt="Illustration of a phone with security alerts">
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Advisories Section -->
+            <div class="info-section bg-gray-100">
+                <div class="container">
+                    <h2 class="info-title">Advisories</h2>
+                    <p class="info-subtitle">Latest alerts and advisories regarding ongoing cyber threats.</p>
+                    <div class="info-grid">
+                        <div class="info-card">
+                            <img src="https://tse2.mm.bing.net/th/id/OIP.EyHcyH8BiEqYkXTyomLzPQHaGN?w=940&h=788&rs=1&pid=ImgDetMain&o=7&rm=3"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/ef4444/ffffff?text=niggat';"
+                                alt="Advisory">
+                            <div class="info-card-content">
+                                <h3>Advisory on Rise in Fake Captcha Filling Jobs' based cybercrime</h3>
+                                <p>There has been significant rise in complaints pertaining to online scams involving
+                                    fraudulent CAPTCHA-filling jobs.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://tse4.mm.bing.net/th/id/OIP.bld4VRbnYhhPW_8U50yySQHaGN?rs=1&pid=ImgDetMain&o=7&rm=3"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/ef4444/ffffff?text=Alert';"
+                                alt="Advisory">
+                            <div class="info-card-content">
+                                <h3>Advisory on 'Digital Arrest' based cybercrime in India</h3>
+                                <p>Many complaints are being reported on National Cyber Crime Reporting Portal (NCRP)
+                                    regarding intimidation, blackmail.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://images.unsplash.com/photo-1614064548237-02f92f0b4874?q=80&w=1974&auto=format&fit=crop"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/ef4444/ffffff?text=Alert';"
+                                alt="Advisory">
+                            <div class="info-card-content">
+                                <h3>ADVISORIES REGARDING FAKE JOB RACKET TARGETING INDIAN YOUTH</h3>
+                                <p>This advisory is being issued in continuation of the Embassy's advisories on the
+                                    above subject, issued on 5th July 2022.</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://images.unsplash.com/photo-1611926653458-09294b3142bf"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/ef4444/ffffff?text=Alert';"
+                                alt="Advisory">
+                            <div class="info-card-content">
+                                <h3>BEWARE OF FAKE STOCK MARKET INVESTMENT WEBSITE/APP.</h3>
+                                <p>With increasing adoption of digital communication platforms like Instagram, Facebook,
+                                    WhatsApp and Telegram, there has been an....</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://www.the420.in/wp-content/uploads/2020/12/Food-Scam-Online.jpg"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/ef4444/ffffff?text=Alert';"
+                                alt="Advisory">
+                            <div class="info-card-content">
+                                <h3>Cybercriminals using fake restaurant websites to defraud citizens</h3>
+                                <p>The pandemic has made ordering takeout more popular than ever. Many restaurants have
+                                    set up their own websites to avoid the fees and challenges ...</p>
+                            </div>
+                        </div>
+                        <div class="info-card">
+                            <img src="https://i.ytimg.com/vi/BvaQ2DyuDes/hqdefault.jpg"
+                                onerror="this.onerror=null;this.src='https://placehold.co/160x120/ef4444/ffffff?text=Alert';"
+                                alt="Advisory">
+                            <div class="info-card-content">
+                                <h3>Kaun Banega Crorepati (KBC) Lottery Frauds</h3>
+                                <p>As per the large number of complaints reported on NCRP of I4C, a message is being
+                                    circulated on social media platforms which announces that..</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Top Tips Block -->
+            <div class="action-plan-block">
+                <div class="container">
+                    <div class="action-plan-content">
+                        <img src="https://i4c.mha.gov.in/assets/images/Compound.png" alt="Illustration of a checklist"
+                            class="action-plan-image">
+                        <div class="action-plan-text">
+                            <h2>Top tips for staying secure online</h2>
+                            <p>Actions you can take today, from the government, to stay secure online.</p>
+                            <a href="#"
+                                class="mt-6 inline-block bg-green-700 text-white font-bold py-3 px-8 rounded-lg hover:bg-green-800 transition-colors">
+                                View all top tips to stay secure online
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
         </main>
         <footer class="footer">
             <div class="container">
@@ -373,6 +843,44 @@
     </div>
     <script>
         lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const guidanceMenu = document.getElementById('guidance-menu');
+            const adviceContents = document.querySelectorAll('.advice-content');
+            const guidanceCards = document.querySelectorAll('.guidance-card');
+            const backButtons = document.querySelectorAll('.back-button');
+
+            function showContent(targetId) {
+                guidanceMenu.style.display = 'none';
+                adviceContents.forEach(content => {
+                    if (content.id === targetId) {
+                        content.style.display = 'block';
+                    } else {
+                        content.style.display = 'none';
+                    }
+                });
+            }
+
+            function showMenu() {
+                guidanceMenu.style.display = 'block';
+                adviceContents.forEach(content => {
+                    content.style.display = 'none';
+                });
+            }
+
+            guidanceCards.forEach(card => {
+                card.addEventListener('click', function () {
+                    const targetId = this.dataset.target;
+                    showContent(targetId);
+                });
+            });
+
+            backButtons.forEach(button => {
+                button.addEventListener('click', function () {
+                    showMenu();
+                });
+            });
+        });
     </script>
 </body>
 
