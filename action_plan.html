@@ -1,0 +1,358 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Cyber Security Centre - Action Plan</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Tinos', serif;
+            background-color: #f8f9fa;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+        }
+
+        main {
+            flex-grow: 1
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 80rem;
+            margin: auto;
+            padding: 0 1rem;
+        }
+
+        .header {
+            background-color: #365314;
+            color: #ffffff;
+        }
+
+        .top-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: .5rem 0;
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            height: 6rem;
+        }
+
+        .logo-container img {
+            height: 3rem;
+        }
+
+        .logo-container span {
+            font-size: 1.125rem;
+            line-height: 1.25;
+        }
+
+        .footer {
+            background-color: #729200;
+            color: white;
+            text-align: center;
+            padding: 3rem 1rem;
+        }
+
+        /* Questionnaire Styles */
+        .question-wrapper {
+            max-width: 48rem;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: white;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, .1), 0 2px 4px -1px rgba(0, 0, 0, .06);
+        }
+
+        .question-title {
+            font-size: 1.75rem;
+            font-weight: 700;
+            color: #1f2937;
+        }
+
+        .question-description {
+            font-size: 1.125rem;
+            color: #4b5563;
+            margin-top: 0.5rem;
+        }
+
+        .answers-container {
+            margin-top: 2rem;
+        }
+
+        .answer-label {
+            display: block;
+            background: #f3f4f6;
+            padding: 1rem;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            margin-bottom: 0.75rem;
+            border: 2px solid transparent;
+            transition: all 0.2s;
+        }
+
+        .answer-label:hover {
+            background: #e5e7eb;
+        }
+
+        input[type="radio"]:checked+.answer-label {
+            border-color: #4ade80;
+            /* green-400 */
+            background: #f0fdf4;
+            /* green-50 */
+        }
+
+        .nav-buttons {
+            display: flex;
+            justify-content: flex-end;
+            margin-top: 2rem;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1.5rem;
+        }
+
+        .btn {
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.5rem;
+            font-weight: 700;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary {
+            background-color: #365314;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background-color: #4d7c0f;
+        }
+
+        /* Results Styles */
+        .result-wrapper {
+            max-width: 48rem;
+            margin: 2rem auto;
+        }
+
+        .result-block {
+            margin-top: 2.5rem;
+        }
+
+        .result-block-title {
+            font-family: 'Inter', sans-serif;
+            font-size: 1.875rem;
+            /* text-3xl */
+            font-weight: 700;
+            color: #1f2937;
+            margin-bottom: 1rem;
+        }
+
+        .result-section {
+            font-family: 'Inter', sans-serif;
+            background: white;
+            border-radius: 0.5rem;
+            border: 1px solid #e5e7eb;
+            border-left-width: 4px;
+            padding: 1.5rem;
+            margin-bottom: 1.5rem;
+            /* Space between sections under the same title */
+        }
+
+        .result-section.urgent {
+            border-left-color: #f97316;
+            /* orange-500 */
+        }
+
+        .result-section.normal {
+            border-left-color: #4d7c0f;
+            /* theme green */
+        }
+
+        .result-section h3 {
+            display: flex;
+            align-items: center;
+            font-size: 0.875rem;
+            /* text-sm */
+            font-weight: 700;
+            color: #ea580c;
+            /* orange-600 */
+            text-transform: uppercase;
+        }
+
+        .result-section h4 {
+            font-size: 1.5rem;
+            /* text-2xl */
+            font-weight: 700;
+            color: #1f2937;
+            margin-top: 0.75rem;
+            margin-bottom: 1rem;
+        }
+
+        .result-section p,
+        .result-section li {
+            font-family: 'Tinos', serif;
+            line-height: 1.7;
+            margin-bottom: 1rem;
+            color: #374151;
+        }
+
+        .result-section a {
+            color: #2563eb;
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="container">
+            <div class="top-nav-bar">
+                <div class="logo-container">
+                    <img src="https://wallpapers.com/images/hd/india-national-emblem-lion-capital-44ajl3o7drdjqbf0.png"
+                        alt="Emblem">
+                    <span>National Cyber<br>Security Centre</span>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div id="questionnaire-container">
+                <!-- Questions will be injected here -->
+            </div>
+            <div id="results-container" class="hidden">
+                <div class="result-wrapper">
+                    <h2 class="text-3xl font-bold text-center">Your result</h2>
+                    <p class="text-center mt-2 text-lg">Based on the answers you've provided, we've identified the
+                        actions below that we strongly recommend to protect yourself online.</p>
+                </div>
+                <!-- Results will be injected here -->
+            </div>
+        </div>
+    </main>
+    <footer class="footer">
+        <p>&copy; 2025 National Cyber Security Centre. All rights reserved.</p>
+    </footer>
+
+    <script>
+        const questionnaireContainer = document.getElementById('questionnaire-container');
+        const resultsContainer = document.getElementById('results-container');
+        const userAnswers = {};
+
+        const questions = [
+            { id: 'q1', text: 'Are your email and social media passwords different from all your other passwords?', options: ['Yes', 'No / not sure'] },
+            { id: 'q2', text: 'Do you use a strong password for your email?', description: "A strong password is difficult to guess and doesn't include any combination of personal information, popular words or number sequences (such as 'qwerty' or 'liverpool123')", options: ['Yes', 'No / not sure'] },
+            { id: 'q3', text: 'Is 2-step verification (2SV) enabled for all your important accounts?', options: ['Yes', 'No / not sure'] },
+            { id: 'q4', text: 'Do you have a recent backup of all your important data?', description: 'Important data could include photos, files and emails. Your backups might be saved to the cloud, or to an external hard drive or USB stick.', options: ['Yes', 'No / not sure'] },
+            { id: 'q4_where', text: 'Where do you back up your important data?', options: ['An external hard drive (usually connected by a USB cable)', 'A USB stick or thumb drive', "Online (also referred to as 'the cloud')", 'A combination of the above'], condition: () => userAnswers.q4 === 'Yes' },
+            { id: 'q5', text: 'Which devices do you use to go online?', options: ['Laptop and/or desktop computer', 'Mobile phone and/or tablet', 'A combination of the above'] },
+            { id: 'q6', text: 'Do you have the security features below enabled for all your personal devices, where they\'re available?', description: 'Screen to auto-lock, PIN/biometric access, Find My Device / Play Protect', options: ['Yes', 'No / not sure'] },
+            { id: 'q7', text: 'Is antivirus enabled on your laptop or desktop computer?', description: 'Antivirus is built into Windows and macOS, and can be found in your computer\'s settings.', options: ['Yes', 'No / not sure'], condition: () => userAnswers.q5?.includes('computer') || userAnswers.q5?.includes('combination') },
+            { id: 'q8', text: 'Do you install the latest updates as soon as they\'re available?', description: "Updates can apply to your device's operating system or any apps on your device.", options: ['Yes', 'No / not sure'] },
+            { id: 'q9', text: 'Before installing a new app or new software on your device, do you check it\'s from an official source?', description: 'This might mean only downloading from an official app store such as Apple App Store or Google Play, or researching the brand or checking its reviews first.', options: ['Always', 'Sometimes', 'Never'] },
+        ];
+
+        let currentQuestionIndex = 0;
+
+        function renderQuestion() {
+            // Skip conditional questions
+            while (currentQuestionIndex < questions.length && questions[currentQuestionIndex].condition && !questions[currentQuestionIndex].condition()) {
+                currentQuestionIndex++;
+            }
+
+            if (currentQuestionIndex >= questions.length) {
+                showResults();
+                return;
+            }
+
+            const q = questions[currentQuestionIndex];
+            const descriptionHTML = q.description ? `<p class="question-description">${q.description}</p>` : '';
+            const answersHTML = q.options.map(opt => `
+                <div>
+                    <input type="radio" name="${q.id}" value="${opt}" id="${q.id}-${opt}" class="hidden">
+                    <label for="${q.id}-${opt}" class="answer-label">${opt}</label>
+                </div>
+            `).join('');
+
+            questionnaireContainer.innerHTML = `
+                <div class="question-wrapper">
+                    <h2 class="question-title">${q.text}</h2>
+                    ${descriptionHTML}
+                    <div class="answers-container">${answersHTML}</div>
+                    <div class="nav-buttons">
+                        <button class="next-btn btn btn-primary">Next</button>
+                    </div>
+                </div>
+            `;
+            document.querySelector('.next-btn').addEventListener('click', handleNext);
+        }
+
+        function handleNext() {
+            const selected = document.querySelector(`input[name="${questions[currentQuestionIndex].id}"]:checked`);
+            if (!selected) {
+                alert('Please select an answer.');
+                return;
+            }
+            userAnswers[questions[currentQuestionIndex].id] = selected.value;
+            currentQuestionIndex++;
+            renderQuestion();
+        }
+
+        function showResults() {
+            questionnaireContainer.classList.add('hidden');
+            resultsContainer.classList.remove('hidden');
+            let resultsHTML = '';
+
+            if (userAnswers.q1?.includes('No') || userAnswers.q2?.includes('No')) {
+                resultsHTML += `<div class="result-block"><h2 class="result-block-title">Protect your email and social media accounts</h2><div class="result-section urgent"><h3>URGENT</h3><h4>Change your passwords on your email and social media accounts</h4><p>If a cyber criminal gets access to your email account, they could:</p><ul class="list-disc list-inside mb-4"><li>read your emails and access private information about you</li><li>reset the passwords on your other accounts</li><li>send emails to your contacts pretending to be you, or imitate you on social media platforms</li></ul><p>You should use strong and separate passwords for each one of your email and social media accounts so that if one account is hacked, a cyber criminal won’t be able to access the others using the same password.</p><p><strong>Tips on how to create and remember strong passwords:</strong></p><ul class="list-disc list-inside"><li><a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/three-random-words" target="_blank">Create strong passwords using three random words (opens in a new tab)</a></li><li><a href="https://www.ncsc.gov.uk/collection/top-tips-for-staying-secure-online/password-managers" target="_blank">Save your passwords to your browser (opens in a new tab)</a></li></ul></div></div>`;
+            }
+            if (userAnswers.q3?.includes('No')) {
+                resultsHTML += `<div class="result-block"><div class="result-section urgent"><h3>URGENT</h3><h4>Turn on 2-step verification (2SV) for all your important personal accounts</h4><p>2SV asks for another way to prove your identity when you sign in to a service, such as a PIN or code that is sent to your phone. You then need to enter this PIN to prove it's really you.</p><p><strong>Here's how you enable 2SV on some popular services:</strong></p><ul class="list-disc list-inside"><li><a href="#" target="_blank">Outlook (opens in a new tab)</a></li><li><a href="#" target="_blank">Gmail (opens in a new tab)</a></li></ul></div></div>`;
+            }
+            if (userAnswers.q4?.includes('No')) {
+                resultsHTML += `<div class="result-block"><h2 class="result-block-title">Back up your data</h2><div class="result-section urgent"><h3>URGENT</h3><h4>Back up all your important data</h4><p>Having a backup of all your important data will help you recover more quickly from a hack, or a lost or broken device. It will also make sure you don’t permanently lose important emails, documents or photos.</p></div><div class="result-section normal"><h4>Turn on automatic backups</h4><p>Enabling automatic backups is the most reliable way to ensure you have a recent copy of all your important data if you are hacked or lose your device.</p></div></div>`;
+            }
+
+            let deviceProtectionHTML = '';
+            if (userAnswers.q6?.includes('No')) {
+                deviceProtectionHTML += `<div class="result-section normal"><h4>Enable the security features for all your personal devices</h4><p>If you've just bought a new device, or haven't reviewed your security settings for a while, you should check the following are switched on: PIN code, password, fingerprint or face ID, auto-lock, and Find My Device / Play Protect.</p></div>`;
+            }
+            if (userAnswers.q7?.includes('No')) {
+                deviceProtectionHTML += `<div class="result-section normal"><h4>Enable antivirus on your computer or laptop</h4><p>An antivirus product detects and removes viruses and other kinds of malicious software from your computer or laptop.</p></div>`;
+            }
+            if (userAnswers.q8?.includes('No')) {
+                deviceProtectionHTML += `<div class="result-section normal"><h4>Install the latest updates on all your personal devices</h4><p>Out-of-date software, apps and operating systems contain security weaknesses that make them easier to compromise.</p></div>`;
+            }
+            if (userAnswers.q9?.includes('Sometimes') || userAnswers.q9?.includes('Never')) {
+                deviceProtectionHTML += `<div class="result-section normal"><h4>Check your apps and software are from an official store</h4><p>You should only download software and apps from official stores, like Google Play or Apple App Store. They scan software for viruses before making it available.</p></div>`;
+            }
+
+            if (deviceProtectionHTML) {
+                resultsHTML += `<div class="result-block"><h2 class="result-block-title">Protect your devices</h2>${deviceProtectionHTML}</div>`;
+            }
+
+            if (resultsHTML === '') {
+                resultsHTML = `<div class="result-wrapper"><div class="result-section text-center"><h3 class="text-green-600">GREAT WORK!</h3><h4 class="text-2xl">You're doing a great job at protecting yourself online.</h4><p>Based on your answers, you already have key security measures in place. Keep it up!</p></div></div>`;
+            }
+
+            resultsContainer.innerHTML += resultsHTML;
+        }
+
+        renderQuestion();
+    </script>
+</body>
+
+</html>
