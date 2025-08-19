@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -6,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>National Cyber Security Centre - News</title>
     <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <style>
         body {
             font-family: 'Tinos', serif;
@@ -170,28 +171,17 @@
             }
         }
 
-        .hero-section p {
+        .hero-section .subtitle {
             margin-top: 1rem;
             font-size: 1.125rem;
-            max-width: 48rem
+            max-width: 48rem;
+            color: #e2e8f0
         }
 
         @media (min-width:640px) {
-            .hero-section p {
+            .hero-section .subtitle {
                 font-size: 1.25rem
             }
-        }
-
-        .welcome-section {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-            text-align: center
-        }
-
-        .welcome-section h2 {
-            font-size: 1.5rem;
-            color: #4b5563;
-            font-weight: 400
         }
 
         .footer {
@@ -211,6 +201,592 @@
                 padding-bottom: 4rem
             }
         }
+
+        /* Security Alerts & Advisories Section */
+        .alerts-section {
+            padding: 3rem 0;
+            background-color: #ffffff;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .section-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .section-icon {
+            width: 1.5rem;
+            height: 1.5rem;
+            color: #475569;
+        }
+
+        .section-title h2 {
+            font-size: 1.875rem;
+            font-weight: 400;
+            color: #1f2937;
+            margin: 0;
+        }
+
+        .filter-controls {
+            display: flex;
+            gap: 1rem;
+            align-items: center;
+        }
+
+        .filter-select {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            background-color: white;
+            font-size: 0.875rem;
+            color: #374151;
+            cursor: pointer;
+        }
+
+        .filter-select:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .alerts-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .alert-card {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            transition: all 0.2s;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .alert-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .alert-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .alert-title {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0 0 0.5rem 0;
+            line-height: 1.4;
+        }
+
+        .alert-meta {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .alert-date {
+            font-size: 0.875rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .severity-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .severity-critical {
+            background-color: #fee2e2;
+            color: #dc2626;
+        }
+
+        .severity-high {
+            background-color: #fed7aa;
+            color: #ea580c;
+        }
+
+        .severity-medium {
+            background-color: #fef3c7;
+            color: #d97706;
+        }
+
+        .severity-low {
+            background-color: #dcfce7;
+            color: #16a34a;
+        }
+
+        .category-badge {
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+
+        .alert-description {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .alert-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-advisory-link {
+            color: #3b82f6;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .read-advisory-link:hover {
+            color: #1d4ed8;
+        }
+
+        .alert-id {
+            font-size: 0.75rem;
+            color: #9ca3af;
+            font-family: monospace;
+        }
+
+        /* News Section */
+        .news-section {
+            padding: 3rem 0;
+            background-color: #f8fafc;
+        }
+
+        .search-controls {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .search-input {
+            padding: 0.5rem 1rem;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            background-color: white;
+            font-size: 0.875rem;
+            width: 200px;
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: #3b82f6;
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+        }
+
+        .search-btn {
+            padding: 0.5rem;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: background-color 0.2s;
+        }
+
+        .search-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        .news-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: 2rem;
+        }
+
+        .news-card {
+            background: white;
+            border-radius: 0.5rem;
+            padding: 1.5rem;
+            border: 1px solid #e5e7eb;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .news-card:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .news-title {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0 0 0.75rem 0;
+            line-height: 1.4;
+        }
+
+        .news-meta {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .news-date {
+            font-size: 0.875rem;
+            color: #6b7280;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+        }
+
+        .news-category {
+            padding: 0.25rem 0.75rem;
+            border-radius: 0.375rem;
+            font-size: 0.75rem;
+            font-weight: 500;
+            background-color: #dbeafe;
+            color: #1d4ed8;
+        }
+
+        .news-excerpt {
+            font-size: 0.875rem;
+            color: #6b7280;
+            line-height: 1.6;
+            margin-bottom: 1rem;
+        }
+
+        .news-actions {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .read-more-link {
+            color: #3b82f6;
+            font-size: 0.875rem;
+            font-weight: 500;
+            display: flex;
+            align-items: center;
+            gap: 0.25rem;
+            transition: color 0.2s;
+        }
+
+        .read-more-link:hover {
+            color: #1d4ed8;
+        }
+
+        .load-more-container {
+            text-align: center;
+            margin-top: 2rem;
+        }
+
+        .load-more-btn {
+            padding: 0.75rem 1.5rem;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: background-color 0.2s;
+        }
+
+        .load-more-btn:hover {
+            background-color: #1d4ed8;
+        }
+
+        /* Quick Access Section */
+        .quick-access-section {
+            padding: 3rem 0;
+            background-color: #ffffff;
+        }
+
+        .quick-access-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .quick-access-item {
+            background: white;
+            border: 1px solid #e5e7eb;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.2s;
+            cursor: pointer;
+        }
+
+        .quick-access-item:hover {
+            border-color: #3b82f6;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+            transform: translateY(-2px);
+        }
+
+        .quick-access-icon {
+            width: 4rem;
+            height: 4rem;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1rem auto;
+            color: white;
+        }
+
+        .quick-access-icon.critical {
+            background-color: #dc2626;
+        }
+
+        .quick-access-icon.security {
+            background-color: #059669;
+        }
+
+        .quick-access-icon.archive {
+            background-color: #7c3aed;
+        }
+
+        .quick-access-icon.resources {
+            background-color: #ea580c;
+        }
+
+        .quick-access-item h3 {
+            font-size: 1.125rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .quick-access-item p {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin: 0;
+            line-height: 1.4;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(2px);
+        }
+
+        .modal-content {
+            background-color: white;
+            margin: 2rem auto;
+            padding: 0;
+            border-radius: 0.5rem;
+            width: 90%;
+            max-width: 800px;
+            max-height: 80vh;
+            overflow: hidden;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .modal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem;
+            border-bottom: 1px solid #e5e7eb;
+            background-color: #f8fafc;
+        }
+
+        .modal-header h3 {
+            margin: 0;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+        }
+
+        .modal-close {
+            background: none;
+            border: none;
+            color: #6b7280;
+            cursor: pointer;
+            padding: 0.5rem;
+            border-radius: 0.375rem;
+            transition: all 0.2s;
+        }
+
+        .modal-close:hover {
+            background-color: #f3f4f6;
+            color: #374151;
+        }
+
+        .modal-body {
+            padding: 1.5rem;
+            max-height: 60vh;
+            overflow-y: auto;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 1rem;
+            padding: 1.5rem;
+            border-top: 1px solid #e5e7eb;
+            background-color: #f8fafc;
+        }
+
+        .btn-primary {
+            padding: 0.5rem 1rem;
+            background-color: #3b82f6;
+            color: white;
+            border: none;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+        }
+
+        .btn-primary:hover {
+            background-color: #1d4ed8;
+        }
+
+        .btn-secondary {
+            padding: 0.5rem 1rem;
+            background-color: #f3f4f6;
+            color: #374151;
+            border: 1px solid #d1d5db;
+            border-radius: 0.375rem;
+            font-size: 0.875rem;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .btn-secondary:hover {
+            background-color: #e5e7eb;
+        }
+
+        /* Loading States */
+        .loading {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 2rem;
+            color: #6b7280;
+        }
+
+        .loading-spinner {
+            width: 2rem;
+            height: 2rem;
+            border: 2px solid #e5e7eb;
+            border-top: 2px solid #3b82f6;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            margin-right: 0.5rem;
+        }
+
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .section-header {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            
+            .filter-controls,
+            .search-controls {
+                width: 100%;
+                justify-content: flex-start;
+            }
+            
+            .alerts-grid,
+            .news-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .quick-access-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .modal-content {
+                width: 95%;
+                margin: 1rem auto;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .quick-access-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .search-input {
+                width: 150px;
+            }
+        }
+
+        /* Empty States */
+        .empty-state {
+            text-align: center;
+            padding: 3rem;
+            color: #6b7280;
+        }
+
+        .empty-state-icon {
+            width: 4rem;
+            height: 4rem;
+            margin: 0 auto 1rem auto;
+            opacity: 0.5;
+        }
+
+        .empty-state h3 {
+            font-size: 1.125rem;
+            font-weight: 500;
+            margin: 0 0 0.5rem 0;
+        }
+
+        .empty-state p {
+            font-size: 0.875rem;
+            margin: 0;
+        }
     </style>
 </head>
 
@@ -226,36 +802,158 @@
                     </div>
                     <div class="utility-links-container">
                         <nav class="utility-nav">
-                            <a href="report-incident.html">REPORT AN INCIDENT</a>
-                            <a href="#">TRACK COMPLAINT</a>
-                            <a href="contact.html">CONTACT US</a>
-                            <a href="#">LOGIN / SIGNUP</a>
+                            <a href="#report">REPORT AN INCIDENT</a>
+                            <a href="#track">TRACK COMPLAINT</a>
+                            <a href="#contact">CONTACT US</a>
+                            <a href="#login">LOGIN / SIGNUP</a>
                         </nav>
                     </div>
                 </div>
                 <nav class="bottom-nav-bar">
                     <div class="bottom-nav-links">
-                        <a href="index.html">Home</a>
-                        <a href="advice.html">Advice & guidance</a>
-                        <a href="respond.html">Report & Check Suspect</a>
-                        <a href="products.html">Find a product or service</a>
-                        <a href="education.html">Education & skills</a>
-                        <a href="news.html" class="active-link">News</a>
+                        <a href="#home">Home</a>
+                        <a href="#advice">Advice & guidance</a>
+                        <a href="#respond">Report & Check Suspect</a>
+                        <a href="#products">Find a product or service</a>
+                        <a href="#education">Education & skills</a>
+                        <a href="#news" class="active-link">News</a>
                     </div>
                 </nav>
                 <div class="hero-section">
-                    <h1>The National Cyber Security Centre</h1>
-                    <p>Protecting India From Cyber Criminals.</p>
+                    <h1>Cybersecurity News & Alerts</h1>
+                    <p class="subtitle">Stay informed with the latest security advisories, threat intelligence, and cybersecurity updates from the National Cyber Security Centre.</p>
                 </div>
             </div>
         </header>
+        
         <main>
-            <div class="welcome-section">
+            <!-- Security Alerts & Advisories Section -->
+            <section class="alerts-section">
                 <div class="container">
-                    <h2>News Content Goes Here</h2>
+                    <div class="section-header">
+                        <div class="section-title">
+                            <i data-lucide="alert-triangle" class="section-icon"></i>
+                            <h2>Security Alerts & Advisories</h2>
+                        </div>
+                        <div class="filter-controls">
+                            <select id="severityFilter" class="filter-select">
+                                <option value="">All Severities</option>
+                                <option value="critical">Critical</option>
+                                <option value="high">High</option>
+                                <option value="medium">Medium</option>
+                                <option value="low">Low</option>
+                            </select>
+                            <select id="categoryFilter" class="filter-select">
+                                <option value="">All Categories</option>
+                                <option value="malware">Malware</option>
+                                <option value="vulnerability">Vulnerability</option>
+                                <option value="phishing">Phishing</option>
+                                <option value="ransomware">Ransomware</option>
+                            </select>
+                        </div>
+                    </div>
+                    
+                    <div class="alerts-grid" id="alertsGrid">
+                        <!-- Dynamic alerts will be populated here -->
+                    </div>
+                </div>
+            </section>
+
+            <!-- Latest News & Updates Section -->
+            <section class="news-section">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <i data-lucide="newspaper" class="section-icon"></i>
+                            <h2>Latest News & Updates</h2>
+                        </div>
+                        <div class="search-controls">
+                            <input type="text" id="newsSearch" placeholder="Search news..." class="search-input">
+                            <button class="search-btn" onclick="searchNews()">
+                                <i data-lucide="search"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <div class="news-grid" id="newsGrid">
+                        <!-- Dynamic news will be populated here -->
+                    </div>
+                    
+                    <div class="load-more-container">
+                        <button class="load-more-btn" onclick="loadMoreNews()">
+                            Load More News
+                            <i data-lucide="chevron-down"></i>
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Quick Access Section -->
+            <section class="quick-access-section">
+                <div class="container">
+                    <div class="section-header">
+                        <div class="section-title">
+                            <i data-lucide="zap" class="section-icon"></i>
+                            <h2>Quick Access</h2>
+                        </div>
+                    </div>
+                    
+                    <div class="quick-access-grid">
+                        <div class="quick-access-item" onclick="openReportIncident()">
+                            <div class="quick-access-icon critical">
+                                <i data-lucide="alert-triangle"></i>
+                            </div>
+                            <h3>Report Incident</h3>
+                            <p>Report cybersecurity incidents immediately</p>
+                        </div>
+                        
+                        <div class="quick-access-item" onclick="openSecurityGuidelines()">
+                            <div class="quick-access-icon security">
+                                <i data-lucide="shield-check"></i>
+                            </div>
+                            <h3>Security Guidelines</h3>
+                            <p>Access comprehensive security guidelines</p>
+                        </div>
+                        
+                        <div class="quick-access-item" onclick="openAdvisoryArchive()">
+                            <div class="quick-access-icon archive">
+                                <i data-lucide="archive"></i>
+                            </div>
+                            <h3>Advisory Archive</h3>
+                            <p>Browse past security advisories</p>
+                        </div>
+                        
+                        <div class="quick-access-item" onclick="openResources()">
+                            <div class="quick-access-icon resources">
+                                <i data-lucide="download"></i>
+                            </div>
+                            <h3>Resources</h3>
+                            <p>Download security tools and resources</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        
+        <!-- Modal for detailed content -->
+        <div id="contentModal" class="modal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h3 id="modalTitle"></h3>
+                    <button class="modal-close" onclick="closeModal()">
+                        <i data-lucide="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body" id="modalBody">
+                    <!-- Dynamic content will be loaded here -->
+                </div>
+                <div class="modal-footer">
+                    <button class="btn-secondary" onclick="closeModal()">Close</button>
+                    <button class="btn-primary" id="modalAction" onclick="handleModalAction()">Read Full Advisory</button>
                 </div>
             </div>
-        </main>
+        </div>
+        
         <footer class="footer">
             <div class="container">
                 <div class="footer-content">
@@ -264,8 +962,744 @@
             </div>
         </footer>
     </div>
+    
     <script>
+        /**
+         * National Cyber Security Centre - News Page JavaScript
+         * Handles dynamic content loading, filtering, searching, and modal interactions
+         */
+
+        // Global variables for data management
+        let alertsData = [];
+        let newsData = [];
+        let filteredAlerts = [];
+        let filteredNews = [];
+        let currentNewsPage = 1;
+        let newsPerPage = 6;
+        let currentModalContent = null;
+
+        /**
+         * Initialize the page with mock data and event listeners
+         */
+        function initializePage() {
+            generateMockAlertsData();
+            generateMockNewsData();
+            renderAlerts();
+            renderNews();
+            setupEventListeners();
+        }
+
+        /**
+         * Generate realistic cybersecurity alerts data
+         */
+        function generateMockAlertsData() {
+            alertsData = [
+                {
+                    id: 'NCSC-2025-001',
+                    title: 'Critical Vulnerability in Popular Web Browsers',
+                    severity: 'critical',
+                    category: 'vulnerability',
+                    date: '2025-01-15',
+                    description: 'A critical security vulnerability has been discovered in multiple web browsers that could allow remote code execution.',
+                    content: `
+                        <h4>Advisory Details</h4>
+                        <p><strong>Vulnerability ID:</strong> CVE-2025-0001</p>
+                        <p><strong>CVSS Score:</strong> 9.8 (Critical)</p>
+                        <p><strong>Affected Systems:</strong> Chrome, Firefox, Safari, Edge (versions listed below)</p>
+                        
+                        <h5>Description</h5>
+                        <p>A use-after-free vulnerability in the JavaScript engine allows attackers to execute arbitrary code by crafting malicious web pages. This vulnerability affects users who visit compromised websites or click on malicious links.</p>
+                        
+                        <h5>Impact</h5>
+                        <ul>
+                            <li>Remote code execution</li>
+                            <li>Information disclosure</li>
+                            <li>Privilege escalation</li>
+                            <li>System compromise</li>
+                        </ul>
+                        
+                        <h5>Affected Versions</h5>
+                        <ul>
+                            <li>Google Chrome: Versions 120.0 - 121.0</li>
+                            <li>Mozilla Firefox: Versions 118.0 - 119.0</li>
+                            <li>Safari: Versions 17.0 - 17.1</li>
+                            <li>Microsoft Edge: Versions 119.0 - 120.0</li>
+                        </ul>
+                        
+                        <h5>Recommendations</h5>
+                        <ul>
+                            <li>Update browsers to the latest versions immediately</li>
+                            <li>Enable automatic updates</li>
+                            <li>Avoid visiting untrusted websites</li>
+                            <li>Implement network-level filtering</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: 'NCSC-2025-002',
+                    title: 'Ransomware Campaign Targeting Healthcare Sector',
+                    severity: 'high',
+                    category: 'ransomware',
+                    date: '2025-01-12',
+                    description: 'New ransomware variant specifically targeting healthcare institutions with advanced encryption techniques.',
+                    content: `
+                        <h4>Threat Intelligence Report</h4>
+                        <p><strong>Threat Actor:</strong> MedLock Group</p>
+                        <p><strong>Target Sector:</strong> Healthcare</p>
+                        <p><strong>Attack Vector:</strong> Phishing emails, RDP exploitation</p>
+                        
+                        <h5>Overview</h5>
+                        <p>The MedLock ransomware group has launched a coordinated campaign against healthcare institutions across multiple regions. The ransomware employs advanced encryption algorithms and data exfiltration techniques.</p>
+                        
+                        <h5>Attack Methods</h5>
+                        <ul>
+                            <li>Spear-phishing emails with malicious attachments</li>
+                            <li>Exploitation of weak RDP credentials</li>
+                            <li>Lateral movement using stolen credentials</li>
+                            <li>Data exfiltration before encryption</li>
+                        </ul>
+                        
+                        <h5>Indicators of Compromise (IoCs)</h5>
+                        <ul>
+                            <li>File hash: 7d865e959b2466918c9863afca942d0fb89d7c9ac0c99bafc3749504ded97730</li>
+                            <li>Domain: medlock-recover[.]onion</li>
+                            <li>Email subject: "Urgent Medical Equipment Update"</li>
+                        </ul>
+                        
+                        <h5>Mitigation Steps</h5>
+                        <ul>
+                            <li>Implement email security filters</li>
+                            <li>Strengthen RDP security</li>
+                            <li>Regular security awareness training</li>
+                            <li>Maintain offline backups</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: 'NCSC-2025-003',
+                    title: 'Phishing Campaign Impersonating Government Services',
+                    severity: 'medium',
+                    category: 'phishing',
+                    date: '2025-01-10',
+                    description: 'Sophisticated phishing emails impersonating official government communications to steal credentials.',
+                    content: `
+                        <h4>Phishing Campaign Analysis</h4>
+                        <p><strong>Campaign Name:</strong> GovPhish-2025</p>
+                        <p><strong>Target:</strong> Government employees and citizens</p>
+                        <p><strong>Method:</strong> Email impersonation</p>
+                        
+                        <h5>Campaign Details</h5>
+                        <p>Attackers are sending highly convincing phishing emails that appear to come from legitimate government departments. These emails request users to verify their accounts or update personal information.</p>
+                        
+                        <h5>Email Characteristics</h5>
+                        <ul>
+                            <li>Professional government branding</li>
+                            <li>Urgent language requiring immediate action</li>
+                            <li>Links to fake government portals</li>
+                            <li>Request for sensitive information</li>
+                        </ul>
+                        
+                        <h5>Red Flags</h5>
+                        <ul>
+                            <li>Sender address doesn't match official domain</li>
+                            <li>Generic greetings instead of personalized</li>
+                            <li>Threatening consequences for non-compliance</li>
+                            <li>Suspicious URL domains</li>
+                        </ul>
+                        
+                        <h5>Protection Measures</h5>
+                        <ul>
+                            <li>Verify sender authenticity through official channels</li>
+                            <li>Check URLs carefully before clicking</li>
+                            <li>Never provide sensitive information via email</li>
+                            <li>Report suspicious emails to IT security</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: 'NCSC-2025-004',
+                    title: 'Supply Chain Attack on Software Development Tools',
+                    severity: 'high',
+                    category: 'malware',
+                    date: '2025-01-08',
+                    description: 'Malicious code injected into popular development tools affecting multiple software vendors.',
+                    content: `
+                        <h4>Supply Chain Security Alert</h4>
+                        <p><strong>Affected Tool:</strong> DevBuild Pro</p>
+                        <p><strong>Attack Type:</strong> Supply chain compromise</p>
+                        <p><strong>Impact:</strong> Downstream software contamination</p>
+                        
+                        <h5>Incident Summary</h5>
+                        <p>Attackers have successfully compromised the build environment of DevBuild Pro, a widely-used software development tool. Malicious code was injected into legitimate software packages, affecting numerous downstream applications.</p>
+                        
+                        <h5>Affected Versions</h5>
+                        <ul>
+                            <li>DevBuild Pro v3.2.1 - v3.2.5</li>
+                            <li>DevBuild SDK v2.1.0 - v2.1.3</li>
+                            <li>All applications built using these versions</li>
+                        </ul>
+                        
+                        <h5>Malware Behavior</h5>
+                        <ul>
+                            <li>Establishes persistence on infected systems</li>
+                            <li>Exfiltrates source code and credentials</li>
+                            <li>Downloads additional payloads</li>
+                            <li>Spreads to development networks</li>
+                        </ul>
+                        
+                        <h5>Immediate Actions</h5>
+                        <ul>
+                            <li>Stop using affected tool versions</li>
+                            <li>Scan development environments</li>
+                            <li>Review and rebuild recent projects</li>
+                            <li>Update to clean tool versions</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: 'NCSC-2025-005',
+                    title: 'Mobile Banking Trojan Detected in App Stores',
+                    severity: 'medium',
+                    category: 'malware',
+                    date: '2025-01-05',
+                    description: 'Malicious mobile applications disguised as legitimate banking apps discovered in official app stores.',
+                    content: `
+                        <h4>Mobile Threat Alert</h4>
+                        <p><strong>Malware Family:</strong> BankStealer</p>
+                        <p><strong>Platform:</strong> Android, iOS</p>
+                        <p><strong>Distribution:</strong> Official app stores</p>
+                        
+                        <h5>Threat Description</h5>
+                        <p>Several malicious applications have been discovered in official app stores, masquerading as legitimate banking applications. These apps steal banking credentials and perform unauthorized transactions.</p>
+                        
+                        <h5>Malicious Apps Identified</h5>
+                        <ul>
+                            <li>SecureBank Pro (Android)</li>
+                            <li>Mobile Banking Plus (iOS)</li>
+                            <li>Digital Wallet Manager (Android)</li>
+                            <li>Quick Payment App (iOS)</li>
+                        </ul>
+                        
+                        <h5>Malware Capabilities</h5>
+                        <ul>
+                            <li>Credential theft through overlay attacks</li>
+                            <li>SMS interception for 2FA bypass</li>
+                            <li>Screen recording and keylogging</li>
+                            <li>Device administration privileges</li>
+                        </ul>
+                        
+                        <h5>Prevention Tips</h5>
+                        <ul>
+                            <li>Download apps only from official sources</li>
+                            <li>Verify app developer authenticity</li>
+                            <li>Check app permissions before installation</li>
+                            <li>Use official banking apps only</li>
+                        </ul>
+                    `
+                },
+                {
+                    id: 'NCSC-2025-006',
+                    title: 'Zero-Day Vulnerability in Network Infrastructure',
+                    severity: 'critical',
+                    category: 'vulnerability',
+                    date: '2025-01-03',
+                    description: 'Previously unknown vulnerability in network equipment allows unauthorized access to critical infrastructure.',
+                    content: `
+                        <h4>Zero-Day Vulnerability Alert</h4>
+                        <p><strong>CVE ID:</strong> CVE-2025-0002</p>
+                        <p><strong>CVSS Score:</strong> 9.1 (Critical)</p>
+                        <p><strong>Affected Equipment:</strong> NetworkGear Pro Series</p>
+                        
+                        <h5>Vulnerability Details</h5>
+                        <p>A zero-day vulnerability has been discovered in NetworkGear Pro Series equipment that allows remote attackers to gain administrative access without authentication. This vulnerability is actively being exploited in the wild.</p>
+                        
+                        <h5>Technical Information</h5>
+                        <ul>
+                            <li>Buffer overflow in management interface</li>
+                            <li>Remote code execution possible</li>
+                            <li>No authentication required</li>
+                            <li>Affects default configurations</li>
+                        </ul>
+                        
+                        <h5>Affected Models</h5>
+                        <ul>
+                            <li>NetworkGear Pro 500 Series</li>
+                            <li>NetworkGear Pro 700 Series</li>
+                            <li>NetworkGear Pro 1000 Series</li>
+                            <li>All firmware versions prior to 2.1.5</li>
+                        </ul>
+                        
+                        <h5>Emergency Measures</h5>
+                        <ul>
+                            <li>Disconnect affected devices from internet</li>
+                            <li>Apply emergency patches immediately</li>
+                            <li>Monitor for suspicious activity</li>
+                            <li>Change all default credentials</li>
+                        </ul>
+                    `
+                }
+            ];
+            
+            filteredAlerts = [...alertsData];
+        }
+
+        /**
+         * Generate realistic cybersecurity news data
+         */
+        function generateMockNewsData() {
+            newsData = [
+                {
+                    id: 'news-001',
+                    title: 'New Cybersecurity Framework Released for Financial Institutions',
+                    category: 'Policy Update',
+                    date: '2025-01-14',
+                    excerpt: 'The National Cyber Security Centre has released comprehensive guidelines for financial sector cybersecurity.',
+                    content: `
+                        <h4>Framework Overview</h4>
+                        <p>The National Cyber Security Centre has unveiled a new cybersecurity framework specifically designed for financial institutions. This comprehensive framework addresses the evolving threat landscape and provides actionable guidance for protecting critical financial infrastructure.</p>
+                        
+                        <h5>Key Framework Components</h5>
+                        <ul>
+                            <li><strong>Risk Assessment Methodologies:</strong> Standardized approaches for identifying and evaluating cyber risks</li>
+                            <li><strong>Incident Response Procedures:</strong> Step-by-step protocols for handling security incidents</li>
+                            <li><strong>Third-party Risk Management:</strong> Guidelines for assessing vendor and partner security</li>
+                            <li><strong>Continuous Monitoring Requirements:</strong> Real-time security monitoring standards</li>
+                            <li><strong>Data Protection Measures:</strong> Enhanced encryption and data handling protocols</li>
+                            <li><strong>Staff Training Programs:</strong> Mandatory cybersecurity awareness training</li>
+                        </ul>
+                        
+                        <h5>Implementation Timeline</h5>
+                        <p>Financial institutions have 180 days to conduct initial assessments and 12 months for full compliance implementation. Priority areas include:</p>
+                        <ul>
+                            <li>Core banking systems security review</li>
+                            <li>Customer data protection audit</li>
+                            <li>Payment processing security enhancement</li>
+                            <li>Digital banking platform hardening</li>
+                        </ul>
+                        
+                        <h5>Industry Impact</h5>
+                        <p>The framework is the result of extensive collaboration with industry experts and incorporates lessons learned from recent cyber incidents in the financial sector. It establishes new baseline security standards and introduces mandatory reporting requirements for cyber incidents affecting financial services.</p>
+                        
+                        <p><strong>Contact:</strong> Financial institutions can access detailed implementation guides and request consultation through the NCSC Financial Sector Liaison Office.</p>
+                    `,
+                    readMoreUrl: '#'
+                },
+                {
+                    id: 'news-002',
+                    title: 'Cyber Security Awareness Month: Key Initiatives Launched',
+                    category: 'Public Awareness',
+                    date: '2025-01-11',
+                    excerpt: 'Multiple awareness programs launched to educate citizens about online safety and digital hygiene.',
+                    content: `
+                        <h4>National Cybersecurity Awareness Campaign</h4>
+                        <p>As part of Cyber Security Awareness Month, the National Cyber Security Centre has launched several comprehensive initiatives to promote cybersecurity awareness among citizens and organizations across the country.</p>
+                        
+                        <h5>Key Initiatives</h5>
+                        <ul>
+                            <li><strong>Public Awareness Campaigns:</strong> National media campaign featuring TV, radio, and digital advertisements</li>
+                            <li><strong>Educational Workshops:</strong> Free workshops in schools, colleges, and community centers</li>
+                            <li><strong>Online Training Modules:</strong> Interactive e-learning courses covering basic to advanced cybersecurity topics</li>
+                            <li><strong>Community Outreach Programs:</strong> Door-to-door awareness programs in rural and urban areas</li>
+                            <li><strong>Corporate Training Sessions:</strong> Specialized programs for businesses and organizations</li>
+                            <li><strong>Student Competitions:</strong> Cybersecurity awareness contests for school and college students</li>
+                        </ul>
+                        
+                        <h5>Focus Areas</h5>
+                        <ul>
+                            <li>Password security and multi-factor authentication</li>
+                            <li>Safe browsing and email practices</li>
+                            <li>Social media privacy settings</li>
+                            <li>Mobile device security</li>
+                            <li>Recognizing and reporting cyber threats</li>
+                            <li>Data backup and recovery practices</li>
+                        </ul>
+                        
+                        <h5>Expected Impact</h5>
+                        <p>These programs aim to reach over 50 million citizens and improve digital literacy across all age groups. Special emphasis is placed on vulnerable populations including senior citizens, small business owners, and students.</p>
+                        
+                        <p><strong>Participation:</strong> Citizens can register for free workshops and access online resources through the NCSC awareness portal at ncsc.gov.in/awareness</p>
+                    `,
+                    readMoreUrl: '#'
+                },
+                {
+                    id: 'news-003',
+                    title: 'International Cooperation Agreement Signed for Cyber Threat Intelligence',
+                    category: 'International Relations',
+                    date: '2025-01-08',
+                    excerpt: 'Strategic partnership established with international agencies for enhanced threat intelligence sharing.',
+                    content: `
+                        <p>The National Cyber Security Centre has signed a landmark agreement with international cybersecurity agencies to enhance global threat intelligence sharing and cooperation.</p>
+                        
+                        <h5>Agreement Highlights</h5>
+                        <ul>
+                            <li>Real-time threat intelligence sharing</li>
+                            <li>Joint incident response capabilities</li>
+                            <li>Coordinated threat hunting operations</li>
+                            <li>Shared research and development initiatives</li>
+                        </ul>
+                        
+                        <p>This partnership will significantly enhance our ability to detect, analyze, and respond to sophisticated cyber threats that cross international borders.</p>
+                    `,
+                    readMoreUrl: '#'
+                },
+                {
+                    id: 'news-004',
+                    title: 'Enhanced Security Measures for Critical Infrastructure',
+                    category: 'Infrastructure Security',
+                    date: '2025-01-05',
+                    excerpt: 'New security protocols implemented to protect essential services from cyber attacks.',
+                    content: `
+                        <p>The National Cyber Security Centre has implemented enhanced security measures for critical infrastructure sectors including energy, transportation, and telecommunications.</p>
+                        
+                        <h5>New Security Protocols</h5>
+                        <ul>
+                            <li>Mandatory security assessments</li>
+                            <li>Real-time threat monitoring</li>
+                            <li>Incident response coordination</li>
+                            <li>Security awareness training</li>
+                        </ul>
+                        
+                        <p>These measures are designed to strengthen the resilience of critical infrastructure against increasingly sophisticated cyber threats.</p>
+                    `,
+                    readMoreUrl: '#'
+                },
+                {
+                    id: 'news-005',
+                    title: 'Cybersecurity Skills Development Program Expanded',
+                    category: 'Education & Training',
+                    date: '2025-01-02',
+                    excerpt: 'National program to train cybersecurity professionals reaches new milestone with 10,000 participants.',
+                    content: `
+                        <p>The National Cyber Security Centre's skills development program has reached a significant milestone, training over 10,000 cybersecurity professionals since its inception.</p>
+                        
+                        <h5>Program Highlights</h5>
+                        <ul>
+                            <li>Hands-on technical training</li>
+                            <li>Industry certifications</li>
+                            <li>Career placement assistance</li>
+                            <li>Continuing education opportunities</li>
+                        </ul>
+                        
+                        <p>The program addresses the critical shortage of cybersecurity professionals and helps build a skilled workforce to defend against cyber threats.</p>
+                    `,
+                    readMoreUrl: '#'
+                },
+                {
+                    id: 'news-006',
+                    title: 'Annual Cybersecurity Exercise Tests National Preparedness',
+                    category: 'Emergency Preparedness',
+                    date: '2024-12-28',
+                    excerpt: 'Multi-sector simulation exercise evaluates cyber incident response capabilities across government and industry.',
+                    content: `
+                        <p>The National Cyber Security Centre conducted its annual cybersecurity exercise, involving participants from government agencies, critical infrastructure operators, and private sector organizations.</p>
+                        
+                        <h5>Exercise Objectives</h5>
+                        <ul>
+                            <li>Test incident response procedures</li>
+                            <li>Evaluate communication protocols</li>
+                            <li>Assess coordination mechanisms</li>
+                            <li>Identify improvement areas</li>
+                        </ul>
+                        
+                        <p>The exercise simulated a complex cyber attack scenario and provided valuable insights for enhancing national cyber resilience.</p>
+                    `,
+                    readMoreUrl: '#'
+                }
+            ];
+            
+            filteredNews = [...newsData];
+        }
+
+        /**
+         * Render security alerts based on current filters
+         */
+        function renderAlerts() {
+            const alertsGrid = document.getElementById('alertsGrid');
+            alertsGrid.innerHTML = '';
+
+            if (filteredAlerts.length === 0) {
+                alertsGrid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <i data-lucide="search-x"></i>
+                        </div>
+                        <h3>No alerts found</h3>
+                        <p>Try adjusting your filters to see more results.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            filteredAlerts.forEach(alert => {
+                const alertElement = createAlertCard(alert);
+                alertsGrid.appendChild(alertElement);
+            });
+
+            lucide.createIcons();
+        }
+
+        /**
+         * Render news articles based on current page and search
+         */
+        function renderNews() {
+            const newsGrid = document.getElementById('newsGrid');
+            const startIndex = 0;
+            const endIndex = currentNewsPage * newsPerPage;
+            const newsToShow = filteredNews.slice(startIndex, endIndex);
+
+            if (newsToShow.length === 0) {
+                newsGrid.innerHTML = `
+                    <div class="empty-state">
+                        <div class="empty-state-icon">
+                            <i data-lucide="newspaper"></i>
+                        </div>
+                        <h3>No news found</h3>
+                        <p>Try searching for different terms.</p>
+                    </div>
+                `;
+                lucide.createIcons();
+                return;
+            }
+
+            newsGrid.innerHTML = '';
+            newsToShow.forEach(news => {
+                const newsElement = createNewsCard(news);
+                newsGrid.appendChild(newsElement);
+            });
+
+            // Show/hide load more button
+            const loadMoreBtn = document.querySelector('.load-more-btn');
+            if (endIndex >= filteredNews.length) {
+                loadMoreBtn.style.display = 'none';
+            } else {
+                loadMoreBtn.style.display = 'inline-flex';
+            }
+
+            lucide.createIcons();
+        }
+
+        /**
+         * Create alert card element
+         */
+        function createAlertCard(alert) {
+            const card = document.createElement('div');
+            card.className = 'alert-card';
+            card.onclick = () => openModal(alert, 'alert');
+
+            const formattedDate = formatDate(alert.date);
+            
+            card.innerHTML = `
+                <div class="alert-header">
+                    <h3 class="alert-title">${alert.title}</h3>
+                </div>
+                <div class="alert-meta">
+                    <div class="alert-date">
+                        <i data-lucide="calendar"></i>
+                        ${formattedDate}
+                    </div>
+                    <span class="severity-badge severity-${alert.severity}">${alert.severity}</span>
+                    <span class="category-badge">${alert.category}</span>
+                </div>
+                <p class="alert-description">${alert.description}</p>
+                <div class="alert-actions">
+                    <span class="read-advisory-link">
+                        Read Full Advisory
+                        <i data-lucide="external-link"></i>
+                    </span>
+                    <span class="alert-id">${alert.id}</span>
+                </div>
+            `;
+
+            return card;
+        }
+
+        /**
+         * Create news card element
+         */
+        function createNewsCard(news) {
+            const card = document.createElement('div');
+            card.className = 'news-card';
+            card.onclick = () => openModal(news, 'news');
+
+            const formattedDate = formatDate(news.date);
+            
+            card.innerHTML = `
+                <h3 class="news-title">${news.title}</h3>
+                <div class="news-meta">
+                    <div class="news-date">
+                        <i data-lucide="calendar"></i>
+                        ${formattedDate}
+                    </div>
+                    <span class="news-category">${news.category}</span>
+                </div>
+                <p class="news-excerpt">${news.excerpt}</p>
+                <div class="news-actions">
+                    <span class="read-more-link">
+                        Read More
+                        <i data-lucide="arrow-right"></i>
+                    </span>
+                </div>
+            `;
+
+            return card;
+        }
+
+        /**
+         * Format date string for display
+         */
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', {
+                year: 'numeric',
+                month: 'short',
+                day: 'numeric'
+            });
+        }
+
+        /**
+         * Filter alerts based on severity and category
+         */
+        function filterAlerts() {
+            const severityFilter = document.getElementById('severityFilter').value;
+            const categoryFilter = document.getElementById('categoryFilter').value;
+
+            filteredAlerts = alertsData.filter(alert => {
+                const severityMatch = !severityFilter || alert.severity === severityFilter;
+                const categoryMatch = !categoryFilter || alert.category === categoryFilter;
+                return severityMatch && categoryMatch;
+            });
+
+            renderAlerts();
+        }
+
+        /**
+         * Search news articles
+         */
+        function searchNews() {
+            const searchTerm = document.getElementById('newsSearch').value.toLowerCase();
+            
+            if (!searchTerm) {
+                filteredNews = [...newsData];
+            } else {
+                filteredNews = newsData.filter(news => 
+                    news.title.toLowerCase().includes(searchTerm) ||
+                    news.excerpt.toLowerCase().includes(searchTerm) ||
+                    news.category.toLowerCase().includes(searchTerm)
+                );
+            }
+
+            currentNewsPage = 1;
+            renderNews();
+        }
+
+        /**
+         * Load more news articles
+         */
+        function loadMoreNews() {
+            currentNewsPage++;
+            renderNews();
+        }
+
+        /**
+         * Open modal with content details
+         */
+        function openModal(item, type) {
+            const modal = document.getElementById('contentModal');
+            const modalTitle = document.getElementById('modalTitle');
+            const modalBody = document.getElementById('modalBody');
+            const modalAction = document.getElementById('modalAction');
+
+            modalTitle.textContent = item.title;
+            modalBody.innerHTML = item.content;
+            
+            if (type === 'alert') {
+                modalAction.textContent = 'Read Full Advisory';
+            } else {
+                modalAction.textContent = 'Read More';
+            }
+
+            currentModalContent = item;
+            modal.style.display = 'block';
+            lucide.createIcons();
+        }
+
+        /**
+         * Close modal
+         */
+        function closeModal() {
+            const modal = document.getElementById('contentModal');
+            modal.style.display = 'none';
+            currentModalContent = null;
+        }
+
+        /**
+         * Handle modal action button click
+         */
+        function handleModalAction() {
+            if (currentModalContent) {
+                // Close modal as content is already displayed
+                closeModal();
+            }
+        }
+
+        /**
+         * Quick access functions
+         */
+        function openReportIncident() {
+            alert('Report Incident: This would open the incident reporting form.');
+        }
+
+        function openSecurityGuidelines() {
+            alert('Security Guidelines: This would open the security guidelines page.');
+        }
+
+        function openAdvisoryArchive() {
+            alert('Advisory Archive: This would open the advisory archive page.');
+        }
+
+        function openResources() {
+            alert('Resources: This would open the resources download page.');
+        }
+
+        /**
+         * Setup event listeners
+         */
+        function setupEventListeners() {
+            // Filter change listeners
+            document.getElementById('severityFilter').addEventListener('change', filterAlerts);
+            document.getElementById('categoryFilter').addEventListener('change', filterAlerts);
+
+            // Search functionality
+            document.getElementById('newsSearch').addEventListener('keypress', function(e) {
+                if (e.key === 'Enter') {
+                    searchNews();
+                }
+            });
+
+            // Modal click outside to close
+            window.addEventListener('click', function(event) {
+                const modal = document.getElementById('contentModal');
+                if (event.target === modal) {
+                    closeModal();
+                }
+            });
+
+            // Escape key to close modal
+            document.addEventListener('keydown', function(event) {
+                if (event.key === 'Escape') {
+                    closeModal();
+                }
+            });
+        }
+
+        // Initialize Lucide icons
         lucide.createIcons();
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            initializePage();
+        });
     </script>
 </body>
 
