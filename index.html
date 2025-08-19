@@ -7,6 +7,9 @@
     <title>National Cyber Security Centre - Home</title>
     <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
     <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
     <style>
         body {
             font-family: 'Tinos', serif;
@@ -35,6 +38,11 @@
             padding-left: 1rem;
             padding-right: 1rem
         }
+        
+        .container-wide {
+            max-width: 90rem;
+        }
+
 
         @media (min-width:640px) {
             .container {
@@ -48,6 +56,11 @@
                 padding-left: 2rem;
                 padding-right: 2rem
             }
+        }
+        
+        .lucide {
+            width: 32px;
+            height: 32px;
         }
 
         .header {
@@ -123,7 +136,8 @@
             display: flex;
             align-items: center;
             gap: 2rem;
-            margin-bottom: -1px
+            margin-bottom: -1px;
+            overflow-x: auto;
         }
 
         .bottom-nav-links a {
@@ -193,34 +207,334 @@
         .banner span {
             font-weight: 700
         }
-
-        .welcome-section {
-            padding-top: 4rem;
-            padding-bottom: 4rem;
-            text-align: center
+        
+        .section-title {
+             font-size: 1.75rem;
+             margin-bottom: 2rem;
+             color: #222;
+             text-align: center;
         }
 
-        .welcome-section h2 {
-            font-size: 1.5rem;
+        /* Cybercrime stats section */
+        .stats-section {
+            background: #f8f9fa; 
+            padding: 2.5rem 1rem;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: #ffffff;
+            padding: 2.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .stat-number {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #00aab6;
+        }
+
+        .stat-label {
+            margin-top: .5rem;
+            font-size: 1.1rem;
+            color: #555;
+            text-align: center;
+        }
+
+        /* Informational Promo Section */
+        .promo-section {
+            background-color: #004c52;
+            color: #ffffff;
+            padding: 4rem 1rem;
+        }
+        .promo-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 4rem;
+        }
+        .promo-text {
+            flex-basis: 60%;
+        }
+        .promo-text h2 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+            line-height: 1.4;
+        }
+        .promo-text p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+        .promo-image {
+            flex-shrink: 0;
+            text-align: center;
+        }
+        .promo-image img {
+            max-width: 400px; /* Increased max-width */
+            width: 100%; /* Ensure it's responsive */
+            height: auto;
+        }
+
+        @media (max-width: 992px) {
+            .promo-content {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+        
+        /* --- Blog Section (Slider) --- */
+        .blog-section {
+            background-color: #ffffff;
+            padding: 2.5rem 0;
+        }
+        
+        .blog-section .container {
+             position: relative;
+        }
+
+        .swiper {
+            width: 100%;
+            height: 100%;
+            padding: 1rem 0;
+        }
+
+        .swiper-slide {
+            text-align: left;
+            font-size: 18px;
+            background: #fff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: auto;
+        }
+
+        .blog-card {
+            background-color: #fff;
+            border-radius: 1rem;
+            overflow: hidden;
+            border: 1px solid #e2e8f0;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .blog-card:hover {
+             transform: translateY(-5px);
+             box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+        
+        .blog-card img {
+            width: 100%;
+            height: 220px;
+            object-fit: cover;
+        }
+
+        .blog-content {
+            padding: 1.5rem;
+            display: flex;
+            flex-direction: column;
+            flex-grow: 1;
+        }
+        
+        .blog-category {
+            font-size: 0.8rem;
+            font-weight: bold;
+            color: #00aab6;
+            text-transform: uppercase;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-content h3 {
+            font-size: 1.35rem;
+            margin: 0;
+            line-height: 1.4;
+        }
+        
+        .blog-content p {
+            margin: 1rem 0;
             color: #4b5563;
-            font-weight: 400
+            flex-grow: 1;
+        }
+        
+        .read-more {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: bold;
+            color: #111827;
+        }
+        
+        .read-more .lucide {
+            width: 16px;
+            height: 16px;
+            transition: transform 0.2s ease;
+        }
+
+        .blog-card:hover .read-more .lucide {
+            transform: translateX(4px);
+        }
+        
+        .swiper-button-next, .swiper-button-prev {
+            color: #00aab6;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+        
+        @media (max-width: 768px) {
+            .swiper-button-next, .swiper-button-prev {
+                display: none;
+            }
+        }
+        
+        /* Newsletter Section */
+        .newsletter-section {
+            background-color: #001e20;
+            color: #ffffff;
+            padding: 4rem 1rem;
+        }
+        .newsletter-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+        }
+        .newsletter-text h2 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            margin: 0 0 1rem 0;
+        }
+        .newsletter-text p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            max-width: 40rem;
+            opacity: 0.9;
+        }
+        .newsletter-form {
+            display: flex;
+            gap: 0.5rem;
+            min-width: 350px;
+        }
+        .newsletter-form input {
+            flex-grow: 1;
+            padding: 0.75rem 1rem;
+            border: 1px solid #004c52;
+            background-color: #002f33;
+            color: #ffffff;
+            border-radius: 0.5rem;
+            font-family: 'Tinos', serif;
+            font-size: 1rem;
+        }
+        .newsletter-form button {
+            padding: 0.75rem 1.5rem;
+            border: none;
+            background-color: #00aab6;
+            color: #ffffff;
+            font-weight: bold;
+            border-radius: 0.5rem;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            font-family: 'Tinos', serif;
+            font-size: 1rem;
+        }
+        .newsletter-form button:hover {
+            background-color: #00cde0;
+        }
+        
+        @media (max-width: 992px) {
+            .newsletter-content {
+                flex-direction: column;
+                text-align: center;
+            }
+            .newsletter-text h2, .newsletter-text p {
+                text-align: center;
+            }
+            .newsletter-form {
+                width: 100%;
+                max-width: 500px;
+            }
+        }
+
+
+        /* Key Services Section */
+        .key-services-section {
+            padding: 2.5rem 1rem;
+            background-color: #f8f9fa;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin: auto;
+        }
+
+        .service-card {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 2rem;
+            background-color: #ffffff;
+            border: 1px solid #e2e8f0;
+            border-radius: 1rem;
+            transition: transform 0.2s ease, box-shadow 0.2s ease;
+            text-align: center;
+        }
+        
+        .service-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .service-card .lucide {
+            color: #00aab6;
+            margin-bottom: 1rem;
+        }
+
+        .service-card h3 {
+            font-size: 1.25rem;
+            margin: 0 0 .5rem 0;
+            color: #111827;
+        }
+
+        .service-card p {
+            font-size: 1rem;
+            color: #4b5563;
+            line-height: 1.5;
         }
 
         .footer {
-            background-color: #991b1b;
+            background-color: #001E20;
             color: white;
             text-align: center
         }
 
+          /* UPDATED FOOTER SIZE */
         .footer-content {
-            padding-top: 3rem;
-            padding-bottom: 3rem
+            padding-top: 1.5rem;
+            padding-bottom: 1.5rem
         }
 
         @media (min-width:640px) {
             .footer-content {
-                padding-top: 4rem;
-                padding-bottom: 4rem
+                padding-top: 2rem;
+                padding-bottom: 2rem
             }
         }
     </style>
@@ -269,11 +583,187 @@
                             recover.</p>
                     </div>
                 </div>
-                <div class="welcome-section">
+
+                <section class="stats-section">
                     <div class="container">
-                        <h2>Welcome to the central hub for cyber security in India.</h2>
+                        <h2 class="section-title">Cybercrime Statistics (India - 2025)</h2>
+                        <div class="stats-grid">
+                            <div class="stat-card">
+                                <div class="stat-number">120,000+</div>
+                                <div class="stat-label">Total Reported Cases</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">85,000+</div>
+                                <div class="stat-label">Cases Solved</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">₹750 Cr+</div>
+                                <div class="stat-label">Money Recovered</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">6 hrs</div>
+                                <div class="stat-label">Average Response Time</div>
+                            </div>
+                            <div class="stat-card">
+                                <div class="stat-number">15,000+</div>
+                                <div class="stat-label">Cybercriminals Arrested</div>
+                            </div>
+                        </div>
                     </div>
-                </div>
+                </section>
+                
+                <section class="promo-section">
+                    <div class="container">
+                        <div class="promo-content">
+                            <div class="promo-text">
+                                <h2>You wouldn’t leave your front door open, so why leave your devices unprotected?</h2>
+                                <p>Don’t become another statistic – take action to secure your online accounts; from banking and shopping, to email and social media. It’s more important than ever to make your cyber security a priority.</p>
+                            </div>
+                            <div class="promo-image">
+                                <img src="/front-door-open.png" alt="Illustration of device security">
+                            </div>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="blog-section">
+                    <div class="container container-wide">
+                        <h2 class="section-title">Latest Content & News</h2>
+                        <div class="swiper">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <a href="#" class="blog-card">
+                                        <img src="https://images.pexels.com/photos/5380649/pexels-photo-5380649.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cyber security professional at work">
+                                        <div class="blog-content">
+                                            <span class="blog-category">Guidance</span>
+                                            <h3>5 Simple Steps to Secure Your Social Media Accounts</h3>
+                                            <p>Learn the essential practices to keep your personal information safe on platforms like Instagram, Facebook, and X.</p>
+                                            <div class="read-more">
+                                                <span>Read More</span><i data-lucide="arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                     <a href="#" class="blog-card">
+                                        <img src="https://images.pexels.com/photos/60504/security-protection-anti-virus-software-60504.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Digital lock illustration">
+                                        <div class="blog-content">
+                                            <span class="blog-category">News</span>
+                                            <h3>New Phishing Scam Targeting Online Shoppers Emerges</h3>
+                                            <p>We are issuing a warning about a sophisticated new email scam designed to steal financial details from e-commerce users.</p>
+                                            <div class="read-more">
+                                                <span>Read More</span><i data-lucide="arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                     <a href="#" class="blog-card">
+                                        <img src="https://images.pexels.com/photos/207580/pexels-photo-207580.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Family using a laptop together">
+                                        <div class="blog-content">
+                                            <span class="blog-category">Education</span>
+                                            <h3>How to Talk to Your Children About Online Safety</h3>
+                                            <p>A guide for parents on initiating important conversations about cyberbullying, privacy, and safe internet habits.</p>
+                                            <div class="read-more">
+                                                <span>Read More</span><i data-lucide="arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                     <a href="#" class="blog-card">
+                                        <img src="https://images.pexels.com/photos/4386321/pexels-photo-4386321.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Smartphone with security icon">
+                                        <div class="blog-content">
+                                            <span class="blog-category">Guidance</span>
+                                            <h3>Securing Your Mobile Device From Malware</h3>
+                                            <p>Your phone is a primary target. Follow these steps to protect your data from malicious apps and attacks.</p>
+                                            <div class="read-more">
+                                                <span>Read More</span><i data-lucide="arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                     <a href="#" class="blog-card">
+                                        <img src="https://images.pexels.com/photos/1181244/pexels-photo-1181244.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Programmer coding on a laptop">
+                                        <div class="blog-content">
+                                            <span class="blog-category">Careers</span>
+                                            <h3>India's Growing Demand for Cyber Security Professionals</h3>
+                                            <p>An overview of the current job market and the essential skills needed to start a career in cyber security.</p>
+                                            <div class="read-more">
+                                                <span>Read More</span><i data-lucide="arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="swiper-slide">
+                                     <a href="#" class="blog-card">
+                                        <img src="https://images.pexels.com/photos/5473956/pexels-photo-5473956.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1" alt="Cloud computing icons">
+                                        <div class="blog-content">
+                                            <span class="blog-category">For Business</span>
+                                            <h3>Cloud Security Best Practices for Small Businesses</h3>
+                                            <p>Moving to the cloud? Ensure your business data is protected with these fundamental security measures.</p>
+                                            <div class="read-more">
+                                                <span>Read More</span><i data-lucide="arrow-right"></i>
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                            </div>
+                            <div class="swiper-button-next"></div>
+                            <div class="swiper-button-prev"></div>
+                        </div>
+                    </div>
+                </section>
+
+                <section class="newsletter-section">
+                    <div class="container">
+                        <div class="newsletter-content">
+                            <div class="newsletter-text">
+                                <h2>Stay Ahead of the Cyber Wave</h2>
+                                <p>Subscribe to our newsletter for weekly insights into emerging cyber threats, the latest security trends, and expert analysis delivered straight to your inbox.</p>
+                            </div>
+                            <form class="newsletter-form">
+                                <input type="email" placeholder="Enter your email address" required>
+                                <button type="submit">Subscribe</button>
+                            </form>
+                        </div>
+                    </div>
+                </section>
+                
+                <section class="key-services-section">
+                    <div class="container container-wide">
+                        <h2 class="section-title">How We Can Help</h2>
+                        <div class="services-grid">
+                            <a href="advice.html" class="service-card">
+                                <i data-lucide="shield-check"></i>
+                                <h3>Advice & Guidance</h3>
+                                <p>Get practical advice on how to protect yourself, your family, or your business from cyber threats.</p>
+                            </a>
+                            <a href="respond.html" class="service-card">
+                                <i data-lucide="mail-warning"></i>
+                                <h3>Report & Check Suspect</h3>
+                                <p>Received a suspicious email, text, or website link? Report it to us and check its authenticity.</p>
+                            </a>
+                            <a href="report-incident.html" class="service-card">
+                                <i data-lucide="siren"></i>
+                                <h3>Respond to an Attack</h3>
+                                <p>Find clear, actionable steps to take if you are currently experiencing a cyber security incident.</p>
+                            </a>
+                            <a href="#ai-chatbot-start" class="service-card">
+                                <i data-lucide="bot"></i>
+                                <h3>AI Help Assistant</h3>
+                                <p>Get instant answers and guided help 24/7 from our new AI-powered chatbot, right here on our site.</p>
+                            </a>
+                            <a href="education.html" class="service-card">
+                                <i data-lucide="graduation-cap"></i>
+                                <h3>Education & Skills</h3>
+                                <p>Enhance your cyber security knowledge with our free courses, resources, and skill-building guides.</p>
+                            </a>
+                        </div>
+                    </div>
+                </section>
+
             </div>
         </main>
         <footer class="footer">
@@ -284,6 +774,39 @@
             </div>
         </footer>
     </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <script>
+      var swiper = new Swiper(".swiper", {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+        breakpoints: {
+          640: {
+            slidesPerView: 2,
+            spaceBetween: 20,
+          },
+          1024: {
+            slidesPerView: 3,
+            spaceBetween: 30,
+          },
+          1280: {
+            slidesPerView: 4,
+            spaceBetween: 30,
+          }
+        },
+      });
+    </script>
+    
     <script>
         lucide.createIcons();
     </script>
