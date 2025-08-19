@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Cyber Security Centre - Report an Incident</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* General Body and Layout Styles */
+        body {
+            font-family: 'Inter', sans-serif; /* Switched to Inter for modern UI */
+            background-color: #f8fafc;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            margin: 0;
+            overflow-y: scroll;
+        }
+
+        main {
+            flex-grow: 1
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit
+        }
+
+        .container {
+            max-width: 80rem;
+            margin-left: auto;
+            margin-right: auto;
+            padding-left: 1rem;
+            padding-right: 1rem
+        }
+
+        @media (min-width:640px) {
+            .container {
+                padding-left: 1.5rem;
+                padding-right: 1.5rem
+            }
+        }
+
+        @media (min-width:1024px) {
+            .container {
+                padding-left: 2rem;
+                padding-right: 2rem
+            }
+        }
+
+        /* Header Styles */
+        .header {
+            background-image: linear-gradient(to bottom, #1d4ed8, #1e3a8a); /* Blue Theme */
+            color: #ffffff;
+            font-family: 'Tinos', serif; /* Keep Tinos for header */
+        }
+
+        .top-nav-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-top: .5rem;
+            padding-bottom: .5rem
+        }
+
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: .75rem;
+            height: 6rem
+        }
+
+        .logo-container img {
+            height: 3rem
+        }
+
+        .logo-container span {
+            font-size: 1.125rem;
+            letter-spacing: .025em;
+            line-height: 1.25
+        }
+
+        .utility-links-container {
+            display: flex;
+            align-items: center;
+            gap: 1rem
+        }
+
+        .utility-nav {
+            display: none
+        }
+
+        @media (min-width:768px) {
+            .utility-nav {
+                display: flex
+            }
+        }
+
+        .utility-nav {
+            align-items: center;
+            background-color: rgba(30, 58, 138, .6);
+            border-radius: 9999px;
+            font-size: .75rem;
+            letter-spacing: .025em
+        }
+
+        .utility-nav a {
+            padding: .5rem 1rem;
+            border-radius: 9999px;
+            transition: background-color .2s;
+            white-space: nowrap
+        }
+
+        .utility-nav a:hover {
+            background-color: rgba(255, 255, 255, .1)
+        }
+
+        .bottom-nav-bar {
+            border-bottom: 1px solid rgba(191, 219, 254, .2)
+        }
+
+        .bottom-nav-links {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-bottom: -1px
+        }
+
+        .bottom-nav-links a {
+            padding-top: .75rem;
+            padding-bottom: .75rem;
+            padding-left: .25rem;
+            padding-right: .25rem;
+            font-size: 1rem;
+            color: #ffffff;
+            white-space: nowrap;
+            transition: color .2s
+        }
+
+        .bottom-nav-links a:hover {
+            color: #bfdbfe;
+        }
+
+        .bottom-nav-links .active-link {
+            border-bottom: 4px solid #ffffff;
+            color: #dbeafe
+        }
+        
+        .footer {
+            background-color: #991b1b;
+            color: white;
+            text-align: center;
+            font-family: 'Tinos', serif;
+        }
+
+        .footer-content {
+            padding-top: 3rem;
+            padding-bottom: 3rem
+        }
+
+        @media (min-width:640px) {
+            .footer-content {
+                padding-top: 4rem;
+                padding-bottom: 4rem
+            }
+        }
+
+        /* New Form Section Styles */
+        .form-section {
+            padding: 2.5rem 0;
+        }
+        .form-container {
+            max-width: 56rem;
+            margin: auto;
+            background-color: #ffffff;
+            padding: 2.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px -1px rgba(0,0,0,.05), 0 2px 4px -1px rgba(0,0,0,.03);
+        }
+        .form-header h2 {
+            color: #6b7280;
+            font-size: 1rem;
+            font-weight: 500;
+        }
+        .form-header h1 {
+            font-size: 2.25rem;
+            font-weight: 700;
+            color: #111827;
+            margin-top: 0.25rem;
+        }
+        .form-header p {
+            margin-top: 1rem;
+            color: #4b5563;
+        }
+        .info-box {
+            margin-top: 1.5rem;
+            background-color: #e0f2fe; /* light blue */
+            color: #0c4a6e; /* dark blue text */
+            padding: 1rem;
+            border-radius: 0.375rem;
+            font-size: 0.9rem;
+        }
+        .form-group {
+            margin-top: 2rem;
+        }
+        .form-group h3 {
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #1f2937;
+            margin-bottom: 1.5rem;
+        }
+        .input-group {
+            margin-bottom: 1.5rem;
+        }
+        .input-group label {
+            display: block;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+            margin-bottom: 0.5rem;
+        }
+        .input-group input,
+        .input-group select,
+        .input-group textarea {
+            width: 100%;
+            border: 1px solid #d1d5db; /* Full border */
+            border-radius: 0.375rem; /* Rounded corners */
+            padding: 0.625rem 0.875rem; /* Padding */
+            box-sizing: border-box;
+            transition: border-color 0.2s, box-shadow 0.2s;
+        }
+        .input-group input:focus,
+        .input-group select:focus,
+        .input-group textarea:focus {
+            outline: none;
+            border-color: #1d4ed8;
+            box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.3); /* Focus ring */
+        }
+        .input-group .help-text {
+            font-size: 0.875rem;
+            color: #6b7280;
+            margin-top: 0.5rem;
+        }
+        .radio-group {
+            display: flex;
+            gap: 1.5rem;
+            align-items: center;
+        }
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            cursor: pointer;
+            font-size: 0.875rem;
+            font-weight: 500;
+            color: #374151;
+        }
+        .radio-group input[type="radio"] {
+            -webkit-appearance: none;
+            appearance: none;
+            background-color: #fff;
+            margin: 0;
+            font: inherit;
+            color: currentColor;
+            width: 1.15em;
+            height: 1.15em;
+            border: 0.15em solid #d1d5db;
+            border-radius: 50%;
+            transform: translateY(-0.075em);
+            display: grid;
+            place-content: center;
+            margin-right: 0.5rem;
+        }
+        .radio-group input[type="radio"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            border-radius: 50%;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em #1d4ed8;
+        }
+        .radio-group input[type="radio"]:checked::before {
+            transform: scale(1);
+        }
+        .radio-group input[type="radio"]:checked {
+            border-color: #1d4ed8;
+        }
+
+        .form-buttons {
+            margin-top: 2.5rem;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 1.5rem;
+            display: flex;
+            justify-content: space-between;
+        }
+        .btn {
+            background-color: #1d4ed8;
+            color: white;
+            padding: 0.75rem 1.5rem;
+            border-radius: 0.375rem;
+            font-weight: 600;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+        .btn-primary:hover {
+            background-color: #1e40af;
+        }
+        .btn-secondary {
+            background-color: #e5e7eb;
+            color: #374151;
+        }
+        .btn-secondary:hover {
+            background-color: #d1d5db;
+        }
+
+        .form-step {
+            display: none;
+        }
+        .form-step.active {
+            display: block;
+        }
+        .conditional-field {
+            display: none;
+        }
+
+    </style>
+</head>
+
+<body class="antialiased">
+    <div style="width: 100%; display: flex; flex-direction: column; flex-grow: 1;">
+        <header class="header">
+            <div class="container">
+                <div class="top-nav-bar">
+                    <div class="logo-container">
+                        <img src="https://wallpapers.com/images/hd/india-national-emblem-lion-capital-44ajl3o7drdjqbf0.png"
+                            alt="Emblem">
+                        <span>National Cyber<br>Security Centre</span>
+                    </div>
+                    <div class="utility-links-container">
+                        <nav class="utility-nav">
+                            <a href="report-incident.html">REPORT AN INCIDENT</a>
+                            <a href="#">TRACK COMPLAINT</a>
+                            <a href="contact.html">CONTACT US</a>
+                            <a href="#">LOGIN / SIGNUP</a>
+                        </nav>
+                    </div>
+                </div>
+                <nav class="bottom-nav-bar">
+                    <div class="bottom-nav-links">
+                        <a href="index.html">Home</a>
+                        <a href="advice.html">Advice & guidance</a>
+                        <a href="respond.html">Report & Check Suspect</a>
+                        <a href="products.html">Respond to a Cyber Attack</a>
+                        <a href="education.html">Education & skills</a>
+                        <a href="news.html">News</a>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main>
+            <section class="form-section">
+                <div class="container">
+                    <div class="form-container">
+                        <form id="report-form">
+                            <!-- Step 1: Personal Information -->
+                            <div id="step-1" class="form-step active">
+                                <div class="form-header">
+                                    <h2>Section 1</h2>
+                                    <h1>Report Information</h1>
+                                    <p>We'll ask for your contact details and some basic information to begin your report.</p>
+                                    <div class="info-box">
+                                        All fields with an asterisk (*) are required
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h3>Your personal details</h3>
+                                    <div class="input-group">
+                                        <label for="first-name">First name*</label>
+                                        <input type="text" id="first-name" name="first-name" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="last-name">Last name*</label>
+                                        <input type="text" id="last-name" name="last-name" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label>Gender*</label>
+                                        <div class="radio-group">
+                                            <label><input type="radio" name="gender" value="male" required> Male</label>
+                                            <label><input type="radio" name="gender" value="female"> Female</label>
+                                            <label><input type="radio" name="gender" value="other"> Other</label>
+                                        </div>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="age">Age*</label>
+                                        <input type="number" id="age" name="age" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h3>Your contact details</h3>
+                                    <div class="input-group">
+                                        <label for="telephone">Telephone number*</label>
+                                        <input type="tel" id="telephone" name="telephone" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="email">Email address*</label>
+                                        <input type="email" id="email" name="email" required>
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h3>Documents</h3>
+                                    <div class="input-group">
+                                        <label for="aadhar">Aadhar Card Number*</label>
+                                        <p class="help-text">Please enter your 12-digit Aadhar card number for verification purposes.</p>
+                                        <input type="text" id="aadhar" name="aadhar" required>
+                                    </div>
+                                </div>
+                                <div class="form-buttons" style="justify-content: flex-end;">
+                                    <button type="button" class="next-btn btn btn-primary">Continue</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 2: Incident Details -->
+                            <div id="step-2" class="form-step">
+                                 <div class="form-header">
+                                    <h2>Section 2</h2>
+                                    <h1>Incident Details</h1>
+                                    <p>We'll ask some questions to help us better understand the type of incident.</p>
+                                     <div class="info-box">
+                                        All fields with an asterisk (*) are required
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <h3>About the Incident</h3>
+                                    <div class="input-group">
+                                        <label for="category">Category of Complaint*</label>
+                                        <select id="category" name="category" required>
+                                            <option value="">Please select a main category...</option>
+                                            <option value="financial">Financial Fraud</option>
+                                            <option value="social">Social Media & Harassment</option>
+                                            <option value="hacking">Hacking & Data Breaches</option>
+                                            <option value="other">Other Crimes</option>
+                                        </select>
+                                    </div>
+                                    <div class="input-group conditional-field" id="sub-category-group">
+                                        <label for="sub-category">Sub-Category*</label>
+                                        <select id="sub-category" name="sub-category" required></select>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="incident-date">Date of Incident*</label>
+                                        <input type="date" id="incident-date" name="incident-date" required>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="incident-time">Approximate Time of Incident</label>
+                                        <input type="time" id="incident-time" name="incident-time">
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="incident-description">Description*</label>
+                                        <textarea id="incident-description" name="incident-description" rows="5" placeholder="Please describe the incident in detail..." required></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="button" class="prev-btn btn btn-secondary">Previous</button>
+                                    <button type="button" class="next-btn btn btn-primary">Continue</button>
+                                </div>
+                            </div>
+
+                            <!-- Step 3: Evidence Upload -->
+                            <div id="step-3" class="form-step">
+                                <div class="form-header">
+                                    <h2>Section 3</h2>
+                                    <h1>Evidence Upload</h1>
+                                    <p>Please upload any evidence you have. This will greatly help in the investigation.</p>
+                                </div>
+                                <div class="form-group">
+                                    <h3>Supporting Files</h3>
+                                    <div class="input-group">
+                                        <label for="upload-screenshots">Upload Screenshots (chat, website, emails, etc.)</label>
+                                        <input type="file" id="upload-screenshots" name="upload-screenshots" multiple>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="upload-documents">Upload Documents (bank statements, emails, receipts)</label>
+                                        <input type="file" id="upload-documents" name="upload-documents" multiple>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="upload-videos">Upload Videos (optional)</label>
+                                        <input type="file" id="upload-videos" name="upload-videos" multiple>
+                                    </div>
+                                    <div class="input-group">
+                                        <label for="fraudulent-links">Provide URL links to fraudulent websites/posts</label>
+                                        <textarea id="fraudulent-links" name="fraudulent-links" rows="4" placeholder="Enter each link on a new line..."></textarea>
+                                    </div>
+                                </div>
+                                <div class="form-buttons">
+                                    <button type="button" class="prev-btn btn btn-secondary">Previous</button>
+                                    <button type="submit" class="btn btn-primary">Submit Report</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 National Cyber Security Centre. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        lucide.createIcons();
+
+        document.addEventListener('DOMContentLoaded', function() {
+            const steps = document.querySelectorAll('.form-step');
+            const nextBtns = document.querySelectorAll('.next-btn');
+            const prevBtns = document.querySelectorAll('.prev-btn');
+            const categorySelect = document.getElementById('category');
+            const subCategoryGroup = document.getElementById('sub-category-group');
+            const subCategorySelect = document.getElementById('sub-category');
+            let currentStep = 0;
+
+            const subCategories = {
+                financial: ['UPI Fraud', 'Credit/Debit Card Fraud', 'Internet Banking Fraud', 'Phishing / Vishing Scam', 'Investment Scam'],
+                social: ['Cyber Stalking / Bullying', 'Impersonation / Fake Profile', 'Non-consensual Intimate Imagery', 'Online Harassment'],
+                hacking: ['Email Hacking', 'Social Media Account Hacking', 'Data Breach / Data Leak', 'Ransomware Attack'],
+                other: ['Online Trafficking', 'Child Sexual Abuse Material', 'Cyber Terrorism', 'Other']
+            };
+
+            function showStep(stepIndex) {
+                steps.forEach((step, index) => {
+                    step.classList.toggle('active', index === stepIndex);
+                });
+            }
+
+            function updateSubCategories() {
+                const selectedCategory = categorySelect.value;
+                subCategorySelect.innerHTML = '<option value="">Please select a sub-category...</option>'; // Clear and add default
+                
+                if (subCategories[selectedCategory]) {
+                    subCategories[selectedCategory].forEach(sub => {
+                        const option = document.createElement('option');
+                        option.value = sub.toLowerCase().replace(/[\s/]/g, '-');
+                        option.textContent = sub;
+                        subCategorySelect.appendChild(option);
+                    });
+                    subCategoryGroup.style.display = 'block';
+                } else {
+                    subCategoryGroup.style.display = 'none';
+                }
+            }
+
+            nextBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (currentStep < steps.length - 1) {
+                        currentStep++;
+                        showStep(currentStep);
+                    }
+                });
+            });
+
+            prevBtns.forEach(button => {
+                button.addEventListener('click', () => {
+                    if (currentStep > 0) {
+                        currentStep--;
+                        showStep(currentStep);
+                    }
+                });
+            });
+
+            categorySelect.addEventListener('change', updateSubCategories);
+
+            // Handle form submission
+            const form = document.getElementById('report-form');
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                // In a real application, you would handle the form submission here.
+                alert('Report submitted successfully!');
+                form.reset();
+                currentStep = 0;
+                showStep(currentStep);
+                updateSubCategories(); // Reset sub-category dropdown
+            });
+        });
+    </script>
+</body>
+
+</html>
