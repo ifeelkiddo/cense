@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>National Cyber Security Centre - Contact Us</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        :root {
+            --primary-color: #0d9488; /* Modern Teal */
+            --primary-hover: #0f766e;
+            --text-dark: #111827;
+            --text-medium: #374151;
+            --text-light: #6b7280;
+            --bg-light: #f7f8fa;
+            --border-color: #e5e7eb;
+            --footer-bg: #1f2937;
+        }
+        body {
+            font-family: 'Inter', sans-serif; background-color: var(--bg-light);
+            color: var(--text-medium); display: flex; flex-direction: column;
+            min-height: 100vh; margin: 0; overflow-y: scroll;
+            -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale;
+        }
+        main { flex-grow: 1 }
+        a { text-decoration: none; color: inherit }
+        .container { max-width: 80rem; margin-left: auto; margin-right: auto; padding-left: 1rem; padding-right: 1rem }
+        @media (min-width:640px) { .container { padding-left: 1.5rem; padding-right: 1.5rem } }
+        .header { background-color: #ffffff; color: var(--text-dark); font-family: 'Tinos', serif; border-bottom: 1px solid var(--border-color); position: sticky; top: 0; z-index: 50; }
+        .top-nav-bar { display: flex; justify-content: space-between; align-items: center; height: 4.5rem; }
+        .logo-container { display: flex; align-items: center; gap: .75rem; }
+        .logo-container img { height: 2.5rem; }
+        .logo-container span { font-size: 1rem; line-height: 1.2; font-weight: 700; }
+        .navigation-links { display: flex; align-items: center; gap: 2rem; }
+        .main-nav-links { display: none; align-items: center; gap: 1.5rem; font-family: 'Inter', sans-serif; }
+        @media (min-width: 1024px) { .main-nav-links { display: flex; } }
+        .main-nav-links a { font-size: 0.9rem; font-weight: 500; color: var(--text-light); transition: color .2s; }
+        .main-nav-links a:hover { color: var(--text-dark); }
+        .main-nav-links .active-link { color: var(--primary-color); font-weight: 600; }
+        .footer { background-color: var(--footer-bg); color: #9ca3af; text-align: center; font-family: 'Inter', sans-serif; }
+        .footer-content { padding: 2rem 1rem; }
+
+        /* Contact Page Specific Styles */
+        .contact-section { padding: 4rem 1rem; }
+        .content-card { background-color: #ffffff; padding: 3rem; border-radius: 1rem; box-shadow: 0 10px 15px -3px rgba(0,0,0,.05), 0 4px 6px -2px rgba(0,0,0,.05); border: 1px solid var(--border-color); }
+        .page-header { text-align: center; margin-bottom: 3rem; }
+        .page-header h1 { font-size: 2.5rem; font-weight: 700; color: var(--text-dark); }
+        .page-header p { margin-top: 1rem; color: var(--text-light); max-width: 40rem; margin-left: auto; margin-right: auto; }
+        
+        .helpline-box {
+            background-color: var(--primary-light);
+            border: 1px solid #5eead4;
+            border-radius: 0.75rem;
+            padding: 2rem;
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        .helpline-box p {
+            color: var(--primary-hover);
+            font-weight: 500;
+            margin: 0;
+        }
+        .helpline-box h2 {
+            color: var(--primary-color);
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-top: 0.5rem;
+            letter-spacing: 2px;
+        }
+        
+        .table-container {
+            overflow-x: auto;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.9rem;
+        }
+        th, td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--border-color);
+        }
+        th {
+            background-color: var(--bg-light);
+            font-weight: 600;
+            color: var(--text-dark);
+        }
+        td {
+            color: var(--text-medium);
+        }
+        td .rank {
+            display: block;
+            font-size: 0.8rem;
+            color: var(--text-light);
+        }
+        td a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        td a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body class="antialiased">
+    <div style="width: 100%; display: flex; flex-direction: column; flex-grow: 1;">
+        <header class="header">
+            <div class="container">
+                <div class="top-nav-bar">
+                    <a href="index.html" class="logo-container">
+                        <img src="https://wallpapers.com/images/hd/india-national-emblem-lion-capital-44ajl3o7drdjqbf0.png" alt="Emblem">
+                        <span>National Cyber<br>Security Centre</span>
+                    </a>
+                    <div class="navigation-links">
+                        <nav class="main-nav-links">
+                            <a href="index.html">Home</a>
+                            <a href="advice.html">Advice & Guidance</a>
+                            <a href="report-incident.html">Report Incident</a>
+                            <a href="education.html">Education & Skills</a>
+                            <a href="news.html">News</a>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section class="contact-section">
+                <div class="container">
+                    <div class="page-header">
+                        <h1>Contact Us</h1>
+                        <p>Get in touch with the appropriate authorities for cybercrime-related issues. For immediate assistance, please use the national helpline.</p>
+                    </div>
+                    <div class="content-card">
+                        <div class="helpline-box">
+                            <p>National Cyber Crime Reporting Portal Helpline</p>
+                            <h2>1930</h2>
+                        </div>
+                        
+                        <h3 style="text-align: center; font-size: 1.5rem; font-weight: 600; color: var(--text-dark); margin-bottom: 2rem;">State Nodal Officers</h3>
+
+                        <div class="table-container">
+                            <table>
+                                <thead>
+                                    <tr>
+                                        <th>State/UT</th>
+                                        <th>Nodal Cyber Cell Officer</th>
+                                        <th>Grievance Officer</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <!-- Data Extracted from PDF -->
+                                    <tr>
+                                        <td>Andaman & Nicobar</td>
+                                        <td><b>Sh. Jitendra Kumar Meena, IPS</b><span class="rank">SSP (CID)</span><a href="mailto:spcid.and@nic.in">spcid.and@nic.in</a></td>
+                                        <td><b>Smt. Sindhu Pillai A, IPS</b><span class="rank">DIGP(Intl.)</span><a href="tel:03192232334">03192-232334</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Andhra Pradesh</td>
+                                        <td><b>Mrs Krishna Prasanna Kumari</b><span class="rank">SP, Cyber Crimes, CID</span><a href="mailto:cybercrimes1930@cid.appolice.gov.in">cybercrimes1930@cid.appolice.gov.in</a></td>
+                                        <td><b>Superintendent of Police</b><span class="rank"></span><a href="tel:8331043255">8331043255</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Arunachal Pradesh</td>
+                                        <td><b>Sh. Rohit Rajbir Singh, IPS</b><span class="rank">S.P (Crime & SIT)</span><a href="mailto:spsit@arupol.nic.in">spsit@arupol.nic.in</a></td>
+                                        <td><b>Sh. Take Ringu, IPS</b><span class="rank">IGP (Crime)</span><a href="tel:9436040703">9436040703</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Assam</td>
+                                        <td><b>Mrs. Indrani Baruah, IPS</b><span class="rank">DIGP</span><a href="mailto:digp-cid@assampolice.gov.in">digp-cid@assampolice.gov.in</a></td>
+                                        <td><b>Sh. Debaraj Upadhaya, IPS</b><span class="rank">IGP, CID</span><a href="tel:03612521618">0361-2521618</a></td>
+                                    </tr>
+                                     <tr>
+                                        <td>Bihar</td>
+                                        <td><b>Shri. Sushil Kumar, IPS</b><span class="rank">SP</span><a href="mailto:cybercell-bih@nic.in">cybercell-bih@nic.in</a></td>
+                                        <td><b>Shri. Rajesh Tripathi</b><span class="rank">SSP</span><a href="tel:06122238098">0612-2238098</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Chandigarh</td>
+                                        <td><b>Ms. Geetanjali Khandelwal, IPS</b><span class="rank">SP/Cyber Crime</span><a href="mailto:dspccic.chd@nic.in">dspccic.chd@nic.in</a></td>
+                                        <td><b>Sh. Raj Kumar Singh, IPS</b><span class="rank">IGP-UT</span><a href="tel:01722700056">0172-2700056</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Delhi</td>
+                                        <td><b>Sh. Hemant Tiwari, IPS</b><span class="rank">DCP/IFSO</span><a href="mailto:ncrp.delhi@delhipolice.gov.in">ncrp.delhi@delhipolice.gov.in</a></td>
+                                        <td><b>Sh. Rajneesh Gupta, IPS</b><span class="rank">JT.CP, IFSO Special Cell</span><a href="tel:01120892633">011-20892633</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Gujarat</td>
+                                        <td><b>Sh. Dharmendra Sharma</b><span class="rank">SP</span><a href="mailto:cc-cid@gujarat.gov.in">cc-cid@gujarat.gov.in</a></td>
+                                        <td><b>Sh. S.G. Trivedi</b><span class="rank">IGP</span><a href="tel:07923250798">079-23250798</a></td>
+                                    </tr>
+                                     <tr>
+                                        <td>Haryana</td>
+                                        <td><b>Amit Dahiya, HPS</b><span class="rank">SP, Cyber</span><a href="mailto:dspscbggn@gmail.com">dspscbggn@gmail.com</a></td>
+                                        <td><b>Sh. Hamid Akhtar, IPS</b><span class="rank">DIG SCB-I</span><a href="tel:01722524058">0172-2524058</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Karnataka</td>
+                                        <td><b>Sri Ravishankar K</b><span class="rank">S.P, CT&R, CID</span><a href="mailto:cybercrimenodal@ksp.gov.in">cybercrimenodal@ksp.gov.in</a></td>
+                                        <td><b>Sri Shantanu Sinha, IPS</b><span class="rank">DIG, Cyber Crimes</span><a href="tel:08022942475">080-22942475</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Madhya Pradesh</td>
+                                        <td><b>Shri Mohammed Yusuf Qureshi, IPS</b><span class="rank">DIG Cyber</span><a href="mailto:mpcyberpolice@mppolice.gov.in">mpcyberpolice@mppolice.gov.in</a></td>
+                                        <td><b>Shri Yogesh Deshmukh</b><span class="rank">ADG, State Cyber Police</span><a href="tel:07552770248">0755-2770248</a></td>
+                                    </tr>
+                                     <tr>
+                                        <td>Maharashtra</td>
+                                        <td><b>Sh. Yashasvi Yadav</b><span class="rank">Special IGP</span><a href="mailto:ig.cbr-mah@gov.in">ig.cbr-mah@gov.in</a></td>
+                                        <td><b>Sh. Sanjay Vilas Shintre</b><span class="rank">SP</span><a href="tel:02222160080">022-22160080</a></td>
+                                    </tr>
+                                    <tr>
+                                        <td>Uttar Pradesh</td>
+                                        <td><b>Rajesh Kumar Yadav</b><span class="rank">SP</span><a href="mailto:sp-cyber.lu@up.gov.in">sp-cyber.lu@up.gov.in</a></td>
+                                        <td><b>Binod Kumar Singh</b><span class="rank">ADG</span><a href="tel:05222390538">0522-2390538</a></td>
+                                    </tr>
+                                    <!-- Add other states as needed -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+        <footer class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <p>&copy; 2025 National Cyber Security Centre. All rights reserved.</p>
+                </div>
+            </div>
+        </footer>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
